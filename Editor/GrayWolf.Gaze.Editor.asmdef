@@ -2,8 +2,8 @@
     "name": "GrayWolf.Gaze.Editor",
     "rootNamespace": "GrayWolf.Gaze",
     "references": [
-        "GUID:650a7e8841454464a845df6facb3d38c",
-        "GUID:6d199bd57c974b94adc29551370408f6"
+        "GUID:15f699d6d0df20a4db45ca25d50a9f07",
+        "GUID:0d6e25cf1b170d54eb53c8ae7e5fa997"
     ],
     "includePlatforms": [
         "Editor"
