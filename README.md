@@ -16,9 +16,9 @@ A focused set of attributes and drawers designed to fill the gaps the default Un
 Gaze ships as a Unity asset, and it is open source.
 
 [Unity Asset Store](https://u3d.as/47tu): import through Window → Package Manager → My Assets  
-[GitHub](https://github.com/mhmtckr27/Gaze-Inspector.git#v1.0.0): 
+[GitHub](https://github.com/mhmtckr27/Gaze-Inspector.git): 
 source, releases and issues. Window → Package Manager → + → Add package from git URL:  
-`https://github.com/mhmtckr27/Gaze-Inspector.git#v1.0.0`
+`https://github.com/mhmtckr27/Gaze-Inspector.git`
 
 ### Requirements
 - Unity 2022.3 or newer (including Unity 6).
