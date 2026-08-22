@@ -13,7 +13,7 @@ A focused set of attributes and drawers designed to fill the gaps the default Un
 *   **Validation & Buttons:** `[Required]` inline error validation and `[Button]` attributes for parameterless method execution.
 
 ## Install
-Gaze ships as a Unity package, and it is open source.
+Gaze ships as a Unity asset, and it is open source.
 
 [Unity Asset Store](https://u3d.as/47tu): import through Window → Package Manager → My Assets  
 [GitHub](https://github.com/mhmtckr27/Gaze-Inspector.git#v1.0.0): 
