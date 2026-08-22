@@ -1,0 +1,28 @@
+{
+  "name": "net.graywolfstudio.gaze",
+  "version": "1.0.0",
+  "displayName": "Gaze Inspector",
+  "description": "Attributes and drawers for the Unity inspector: serializable dictionaries, polymorphic subclass pickers, conditional fields, and paginated collections.",
+  "unity": "2022.3",
+  "documentationUrl": "https://graywolfstudio.net/docs/gaze",
+  "changelogUrl": "https://graywolfstudio.net/docs/gaze/changelog",
+  "licensesUrl": "https://unity.com/legal/as-terms",
+  "keywords": [
+    "inspector",
+    "drawer",
+    "editor",
+    "validator"
+  ],
+  "author": {
+    "name": "Gray Wolf Studio",
+    "email": "info@graywolfstudio.net",
+    "url": "https://graywolfstudio.net"
+  },
+  "samples": [
+    {
+      "displayName": "Demo",
+      "description": "A handful of demo scripts and a scene showcasing them.",
+      "path": "Samples~/Demo"
+    }
+  ]
+}

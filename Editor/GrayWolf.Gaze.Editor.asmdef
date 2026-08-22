@@ -1,0 +1,19 @@
+{
+    "name": "GrayWolf.Gaze.Editor",
+    "rootNamespace": "GrayWolf.Gaze",
+    "references": [
+        "GUID:650a7e8841454464a845df6facb3d38c",
+        "GUID:6d199bd57c974b94adc29551370408f6"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

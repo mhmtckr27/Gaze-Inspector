@@ -1,0 +1,2936 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!29 &1
+OcclusionCullingSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_OcclusionBakeSettings:
+    smallestOccluder: 5
+    smallestHole: 0.25
+    backfaceThreshold: 100
+  m_SceneGUID: 00000000000000000000000000000000
+  m_OcclusionCullingData: {fileID: 0}
+--- !u!104 &2
+RenderSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 9
+  m_Fog: 0
+  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  m_FogMode: 3
+  m_FogDensity: 0.01
+  m_LinearFogStart: 0
+  m_LinearFogEnd: 300
+  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
+  m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
+  m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
+  m_AmbientIntensity: 1
+  m_AmbientMode: 3
+  m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
+  m_SkyboxMaterial: {fileID: 0}
+  m_HaloStrength: 0.5
+  m_FlareStrength: 1
+  m_FlareFadeSpeed: 3
+  m_HaloTexture: {fileID: 0}
+  m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
+  m_DefaultReflectionMode: 0
+  m_DefaultReflectionResolution: 128
+  m_ReflectionBounces: 1
+  m_ReflectionIntensity: 1
+  m_CustomReflection: {fileID: 0}
+  m_Sun: {fileID: 0}
+  m_UseRadianceAmbientProbe: 0
+--- !u!157 &3
+LightmapSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 12
+  m_GIWorkflowMode: 1
+  m_GISettings:
+    serializedVersion: 2
+    m_BounceScale: 1
+    m_IndirectOutputScale: 1
+    m_AlbedoBoost: 1
+    m_EnvironmentLightingMode: 0
+    m_EnableBakedLightmaps: 0
+    m_EnableRealtimeLightmaps: 0
+  m_LightmapEditorSettings:
+    serializedVersion: 12
+    m_Resolution: 2
+    m_BakeResolution: 40
+    m_AtlasSize: 1024
+    m_AO: 0
+    m_AOMaxDistance: 1
+    m_CompAOExponent: 1
+    m_CompAOExponentDirect: 0
+    m_ExtractAmbientOcclusion: 0
+    m_Padding: 2
+    m_LightmapParameters: {fileID: 0}
+    m_LightmapsBakeMode: 1
+    m_TextureCompression: 1
+    m_FinalGather: 0
+    m_FinalGatherFiltering: 1
+    m_FinalGatherRayCount: 256
+    m_ReflectionCompression: 2
+    m_MixedBakeMode: 2
+    m_BakeBackend: 1
+    m_PVRSampling: 1
+    m_PVRDirectSampleCount: 32
+    m_PVRSampleCount: 512
+    m_PVRBounces: 2
+    m_PVREnvironmentSampleCount: 256
+    m_PVREnvironmentReferencePointCount: 2048
+    m_PVRFilteringMode: 1
+    m_PVRDenoiserTypeDirect: 1
+    m_PVRDenoiserTypeIndirect: 1
+    m_PVRDenoiserTypeAO: 1
+    m_PVRFilterTypeDirect: 0
+    m_PVRFilterTypeIndirect: 0
+    m_PVRFilterTypeAO: 0
+    m_PVREnvironmentMIS: 1
+    m_PVRCulling: 1
+    m_PVRFilteringGaussRadiusDirect: 1
+    m_PVRFilteringGaussRadiusIndirect: 5
+    m_PVRFilteringGaussRadiusAO: 2
+    m_PVRFilteringAtrousPositionSigmaDirect: 0.5
+    m_PVRFilteringAtrousPositionSigmaIndirect: 2
+    m_PVRFilteringAtrousPositionSigmaAO: 1
+    m_ExportTrainingData: 0
+    m_TrainingDataDestination: TrainingData
+    m_LightProbeSampleCountMultiplier: 4
+  m_LightingDataAsset: {fileID: 0}
+  m_LightingSettings: {fileID: 0}
+--- !u!196 &4
+NavMeshSettings:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_BuildSettings:
+    serializedVersion: 3
+    agentTypeID: 0
+    agentRadius: 0.5
+    agentHeight: 2
+    agentSlope: 45
+    agentClimb: 0.4
+    ledgeDropHeight: 0
+    maxJumpAcrossDistance: 0
+    minRegionArea: 2
+    manualCellSize: 0
+    cellSize: 0.16666667
+    manualTileSize: 0
+    tileSize: 256
+    buildHeightMesh: 0
+    maxJobWorkers: 0
+    preserveTilesOutsideBounds: 0
+    debug:
+      m_Flags: 0
+  m_NavMeshData: {fileID: 0}
+--- !u!1 &185161025
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 185161027}
+  - component: {fileID: 185161026}
+  m_Layer: 0
+  m_Name: Dictionary
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &185161026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185161025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2b34ba678934e258bb895c215166c80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stringToFloat:
+    keyData:
+    - gravity
+    - drag
+    - friction
+    valueData:
+    - -9.81
+    - 0.02
+    - 0.4
+  stringToInt:
+    keyData:
+    - alpha
+    - bravo
+    - charlie
+    - delta
+    - echo
+    - foxtrot
+    - golf
+    - hotel
+    - india
+    - juliet
+    valueData: 0100000002000000030000000400000005000000060000000700000008000000090000000a000000
+  intToString:
+    keyData: 64000000c80000002c010000
+    valueData:
+    - hundred
+    - two hundred
+    - three hundred
+  prefabsByName:
+    keyData: []
+    valueData: []
+  colorByState:
+    keyData: 00000000010000000200000003000000
+    valueData:
+    - {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    - {r: 0, g: 1, b: 0, a: 1}
+    - {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+    - {r: 1, g: 0, b: 0, a: 1}
+  abilityStats:
+    keyData:
+    - Fireball
+    - Heal
+    valueData:
+    - cooldown: 4
+      manaCost: 30
+      description: Ranged burst
+    - cooldown: 8
+      manaCost: 45
+      description: Restores health
+  customLabels:
+    keyData:
+    - Fireball
+    - Heal
+    valueData:
+    - 4
+    - 8
+  titledValues:
+    keyData:
+    - Dash
+    - Shield
+    valueData:
+    - cooldown: 2
+      manaCost: 10
+      description: Short burst of speed
+    - cooldown: 6
+      manaCost: 25
+      description: Absorbs one hit
+  duplicateKeys:
+    keyData:
+    - unique
+    - shared
+    - shared
+    valueData: 030000000100000002000000
+  paginated:
+    keyData:
+    - key_000
+    - key_001
+    - key_002
+    - key_003
+    - key_004
+    - key_005
+    - key_006
+    - key_007
+    - key_008
+    - key_009
+    - key_010
+    - key_011
+    - key_012
+    - key_013
+    - key_014
+    - key_015
+    - key_016
+    - key_017
+    - key_018
+    - key_019
+    - key_020
+    - key_021
+    - key_022
+    - key_023
+    - key_024
+    - key_025
+    - key_026
+    - key_027
+    - key_028
+    - key_029
+    - key_030
+    - key_031
+    - key_032
+    - key_033
+    - key_034
+    - key_035
+    - key_036
+    - key_037
+    - key_038
+    - key_039
+    - key_040
+    - key_041
+    - key_042
+    - key_043
+    - key_044
+    - key_045
+    - key_046
+    - key_047
+    - key_048
+    - key_049
+    - key_050
+    - key_051
+    - key_052
+    - key_053
+    - key_054
+    - key_055
+    - key_056
+    - key_057
+    - key_058
+    - key_059
+    - key_060
+    - key_061
+    - key_062
+    - key_063
+    - key_064
+    - key_065
+    - key_066
+    - key_067
+    - key_068
+    - key_069
+    - key_070
+    - key_071
+    - key_072
+    - key_073
+    - key_074
+    - key_075
+    - key_076
+    - key_077
+    - key_078
+    - key_079
+    - key_080
+    - key_081
+    - key_082
+    - key_083
+    - key_084
+    - key_085
+    - key_086
+    - key_087
+    - key_088
+    - key_089
+    - key_090
+    - key_091
+    - key_092
+    - key_093
+    - key_094
+    - key_095
+    - key_096
+    - key_097
+    - key_098
+    - key_099
+    - key_100
+    - key_101
+    - key_102
+    - key_103
+    - key_104
+    - key_105
+    - key_106
+    - key_107
+    - key_108
+    - key_109
+    - key_110
+    - key_111
+    - key_112
+    - key_113
+    - key_114
+    - key_115
+    - key_116
+    - key_117
+    - key_118
+    - key_119
+    - key_120
+    - key_121
+    - key_122
+    - key_123
+    - key_124
+    - key_125
+    - key_126
+    - key_127
+    - key_128
+    - key_129
+    - key_130
+    - key_131
+    - key_132
+    - key_133
+    - key_134
+    - key_135
+    - key_136
+    valueData: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f000000100000001100000012000000130000001400000015000000160000001700000018000000190000001a0000001b0000001c0000001d0000001e0000001f000000200000002100000022000000230000002400000025000000260000002700000028000000290000002a0000002b0000002c0000002d0000002e0000002f000000300000003100000032000000330000003400000035000000360000003700000038000000390000003a0000003b0000003c0000003d0000003e0000003f000000400000004100000042000000430000004400000045000000460000004700000048000000490000004a0000004b0000004c0000004d0000004e0000004f000000500000005100000052000000530000005400000055000000560000005700000058000000590000005a0000005b0000005c0000005d0000005e0000005f000000600000006100000062000000630000006400000065000000660000006700000068000000690000006a0000006b0000006c0000006d0000006e0000006f000000700000007100000072000000730000007400000075000000760000007700000078000000790000007a0000007b0000007c0000007d0000007e0000007f000000800000008100000082000000830000008400000085000000860000008700000088000000
+  parallelA:
+    keyData: []
+    valueData: []
+  parallelB:
+    keyData: []
+    valueData: []
+  parallelC:
+    keyData: []
+    valueData: []
+--- !u!4 &185161027
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185161025}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &185588276
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 185588278}
+  - component: {fileID: 185588277}
+  m_Layer: 0
+  m_Name: KitchenSink
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &185588277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185588276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14a081cff6924c74bb1c2aec5ab3e8ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boolField: 0
+  relabelledBool: 0
+  requiredString: Clear me to see the validation error
+  intField: 42
+  intRanged: 5
+  floatNonNegative: 2
+  floatField: 3.14159
+  floatRanged: 0.5
+  singleLine: Hello world
+  multiLine: 'Line 1
+
+    Line 2
+
+    Line 3'
+  textArea: 'Resizable text area
+
+    Try resizing me'
+  delayedApply: Editing applies on focus loss
+  hiddenButSerialized: 1234
+  renamedField: Formerly oldName
+  conditionDriver: 1
+  stateDriver: 1
+  shownWhenDriverIsTrue: '[ShowIf]'
+  hiddenWhenDriverIsTrue: '[HideIf]'
+  enabledWhenDriverIsTrue: '[EnableIf]'
+  disabledWhenDriverIsTrue: '[DisableIf]'
+  neverEditable: '[ReadOnly]'
+  v2: {x: 5, y: 6}
+  v3: {x: 1, y: 2, z: 3}
+  v4: {x: 1, y: 2, z: 3, w: 4}
+  v2Int: {x: 5, y: 6}
+  v3Int: {x: 5, y: 6, z: 7}
+  v2Clamped: {x: 1, y: 1}
+  v3Clamped: {x: 1, y: 1, z: 1}
+  v4Sliders: {x: 1, y: 1, z: 1, w: 1}
+  v2IntClamped: {x: 1, y: 1}
+  rotation: {x: 0.12607862, y: 0.25660482, z: -0.033782665, w: 0.9576622}
+  rect:
+    serializedVersion: 2
+    x: 10
+    y: 10
+    width: 128
+    height: 64
+  rectInt:
+    x: 10
+    y: 10
+    width: 128
+    height: 64
+  bounds:
+    m_Center: {x: 1.28, y: 1.38, z: 0.38}
+    m_Extent: {x: 1, y: 1, z: 1}
+  boundsInt:
+    m_Position: {x: 0, y: 1, z: 0}
+    m_Size: {x: 2, y: 2, z: 2}
+  hash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  character: 71
+  color: {r: 0, g: 1, b: 0, a: 1}
+  hdrColor: {r: 3, g: 2, b: 1, a: 1}
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  boundedCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  gradient:
+    serializedVersion: 2
+    key0: {r: 1, g: 0, b: 1, a: 1}
+    key1: {r: 0, g: 1, b: 1, a: 1}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_ColorSpace: -1
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
+  goRef: {fileID: 0}
+  transformRef: {fileID: 0}
+  materialRef: {fileID: 0}
+  textureRef: {fileID: 0}
+  audioClipRef: {fileID: 0}
+  scriptableObjRef: {fileID: 0}
+  exposedRef:
+    exposedName: 
+    defaultValue: {fileID: 0}
+  state: 0
+  stateWithFlags: 1
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  stats:
+    level: 4
+    progress: 0.35
+    spawnPoint: {x: 1, y: 2, z: 3}
+    collidesWith:
+      serializedVersion: 2
+      m_Bits: 0
+  intArray: 0100000002000000030000000500000008000000
+  floatList:
+  - 0.1
+  - 0.25
+  - 0.5
+  - 0.6660133
+  - 0.54561466
+  - 0.6114015
+  inventoryArray:
+  - itemName: Sword
+    amount: 1
+    size: {x: 1, y: 2}
+    effect:
+      rid: 3658249009839210496
+  - itemName: Potion
+    amount: 3
+    size: {x: 1, y: 1}
+    effect:
+      rid: 3658249009839210497
+  inventory:
+  - itemName: Item
+    amount: 1
+    size: {x: 2, y: 2}
+    effect:
+      rid: -2
+  - itemName: Item
+    amount: 1
+    size: {x: 2, y: 1}
+    effect:
+      rid: 3658249009839210498
+  - itemName: Item
+    amount: 20
+    size: {x: 1, y: 1}
+    effect:
+      rid: -2
+  - itemName: Item
+    amount: 2
+    size: {x: 1, y: 2}
+    effect:
+      rid: -2
+  - itemName: Arrow
+    amount: 20
+    size: {x: 1, y: 1}
+    effect:
+      rid: -2
+  - itemName: Torch
+    amount: 2
+    size: {x: 1, y: 2}
+    effect:
+      rid: -2
+  groups:
+  - groupName: Starter
+    items:
+    - itemName: Item
+      amount: 2
+      size: {x: 1, y: 1}
+      effect:
+        rid: -2
+    - itemName: Item
+      amount: 1
+      size: {x: 1, y: 1}
+      effect:
+        rid: -2
+  - groupName: Loot
+    items:
+    - itemName: Item
+      amount: 5
+      size: {x: 1, y: 1}
+      effect:
+        rid: 3658249009839210499
+  - groupName: Crafting
+    items:
+    - itemName: Item
+      amount: 5
+      size: {x: 1, y: 1}
+      effect:
+        rid: -2
+    - itemName: Item
+      amount: 1
+      size: {x: 1, y: 1}
+      effect:
+        rid: -2
+  paginatedInventory:
+  - itemName: Item 0
+    amount: 1
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058439
+  - itemName: Item 1
+    amount: 2
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058440
+  - itemName: Item 2
+    amount: 3
+    size: {x: 1, y: 1}
+    effect:
+      rid: -2
+  - itemName: Item 3
+    amount: 4
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058441
+  - itemName: Item 4
+    amount: 5
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058442
+  - itemName: Item 5
+    amount: 6
+    size: {x: 1, y: 1}
+    effect:
+      rid: -2
+  - itemName: Item 6
+    amount: 7
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058443
+  - itemName: Item 7
+    amount: 8
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058444
+  - itemName: Item 8
+    amount: 9
+    size: {x: 1, y: 1}
+    effect:
+      rid: -2
+  - itemName: Item 9
+    amount: 10
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058445
+  - itemName: Item 10
+    amount: 11
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058446
+  - itemName: Item 11
+    amount: 12
+    size: {x: 1, y: 1}
+    effect:
+      rid: -2
+  - itemName: Item 12
+    amount: 13
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058447
+  - itemName: Item 13
+    amount: 14
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058448
+  - itemName: Item 14
+    amount: 15
+    size: {x: 1, y: 1}
+    effect:
+      rid: -2
+  - itemName: Item 15
+    amount: 16
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058449
+  - itemName: Item 16
+    amount: 17
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058450
+  - itemName: Item 17
+    amount: 18
+    size: {x: 1, y: 1}
+    effect:
+      rid: -2
+  - itemName: Item 18
+    amount: 19
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058451
+  - itemName: Item 19
+    amount: 20
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058452
+  - itemName: Item 20
+    amount: 21
+    size: {x: 1, y: 1}
+    effect:
+      rid: -2
+  - itemName: Item 21
+    amount: 22
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058453
+  - itemName: Item 22
+    amount: 23
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058454
+  - itemName: Item 23
+    amount: 24
+    size: {x: 1, y: 1}
+    effect:
+      rid: -2
+  - itemName: Item 24
+    amount: 25
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058455
+  - itemName: Item 25
+    amount: 26
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058456
+  - itemName: Item 26
+    amount: 27
+    size: {x: 1, y: 1}
+    effect:
+      rid: -2
+  - itemName: Item 27
+    amount: 28
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058457
+  - itemName: Item 28
+    amount: 29
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058458
+  - itemName: Item 29
+    amount: 30
+    size: {x: 1, y: 1}
+    effect:
+      rid: -2
+  - itemName: Item 30
+    amount: 31
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058459
+  - itemName: Item 31
+    amount: 32
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058460
+  - itemName: Item 32
+    amount: 33
+    size: {x: 1, y: 1}
+    effect:
+      rid: -2
+  - itemName: Item 33
+    amount: 34
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058461
+  - itemName: Item 34
+    amount: 35
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058462
+  - itemName: Item 35
+    amount: 36
+    size: {x: 1, y: 1}
+    effect:
+      rid: -2
+  - itemName: Item 36
+    amount: 37
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058463
+  - itemName: Item 37
+    amount: 38
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058464
+  - itemName: Item 38
+    amount: 39
+    size: {x: 1, y: 1}
+    effect:
+      rid: -2
+  - itemName: Item 39
+    amount: 40
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058465
+  - itemName: Item 40
+    amount: 41
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058466
+  - itemName: Item 41
+    amount: 42
+    size: {x: 1, y: 1}
+    effect:
+      rid: -2
+  - itemName: Item 42
+    amount: 43
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058467
+  - itemName: Item 43
+    amount: 44
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058468
+  - itemName: Item 44
+    amount: 45
+    size: {x: 1, y: 1}
+    effect:
+      rid: -2
+  - itemName: Item 45
+    amount: 46
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058469
+  - itemName: Item 46
+    amount: 47
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058470
+  - itemName: Item 47
+    amount: 48
+    size: {x: 1, y: 1}
+    effect:
+      rid: -2
+  - itemName: Item 48
+    amount: 49
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058471
+  - itemName: Item 49
+    amount: 50
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058472
+  - itemName: Item 50
+    amount: 51
+    size: {x: 1, y: 1}
+    effect:
+      rid: -2
+  - itemName: Item 51
+    amount: 52
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058473
+  - itemName: Item 52
+    amount: 53
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058474
+  - itemName: Item 53
+    amount: 54
+    size: {x: 1, y: 1}
+    effect:
+      rid: -2
+  - itemName: Item 54
+    amount: 55
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058475
+  - itemName: Item 55
+    amount: 56
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058476
+  - itemName: Item 56
+    amount: 57
+    size: {x: 1, y: 1}
+    effect:
+      rid: -2
+  - itemName: Item 57
+    amount: 58
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058477
+  - itemName: Item 58
+    amount: 59
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058478
+  - itemName: Item 59
+    amount: 60
+    size: {x: 1, y: 1}
+    effect:
+      rid: -2
+  - itemName: Item 60
+    amount: 61
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058479
+  - itemName: Item 61
+    amount: 62
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058480
+  - itemName: Item 62
+    amount: 63
+    size: {x: 1, y: 1}
+    effect:
+      rid: -2
+  - itemName: Item 63
+    amount: 64
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058481
+  - itemName: Item 64
+    amount: 65
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058482
+  - itemName: Item 65
+    amount: 66
+    size: {x: 1, y: 1}
+    effect:
+      rid: -2
+  - itemName: Item 66
+    amount: 67
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058483
+  - itemName: Item 67
+    amount: 68
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058484
+  - itemName: Item 68
+    amount: 69
+    size: {x: 1, y: 1}
+    effect:
+      rid: -2
+  - itemName: Item 69
+    amount: 70
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058485
+  - itemName: Item 70
+    amount: 71
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058486
+  - itemName: Item 71
+    amount: 72
+    size: {x: 1, y: 1}
+    effect:
+      rid: -2
+  - itemName: Item 72
+    amount: 73
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058487
+  - itemName: Item 73
+    amount: 74
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058488
+  - itemName: Item 74
+    amount: 75
+    size: {x: 1, y: 1}
+    effect:
+      rid: -2
+  - itemName: Item 75
+    amount: 76
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058489
+  - itemName: Item 76
+    amount: 77
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058490
+  - itemName: Item 77
+    amount: 78
+    size: {x: 1, y: 1}
+    effect:
+      rid: -2
+  - itemName: Item 78
+    amount: 79
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058491
+  - itemName: Item 79
+    amount: 80
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058492
+  - itemName: Item 80
+    amount: 81
+    size: {x: 1, y: 1}
+    effect:
+      rid: -2
+  - itemName: Item 81
+    amount: 82
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058493
+  - itemName: Item 82
+    amount: 83
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058494
+  - itemName: Item 83
+    amount: 84
+    size: {x: 1, y: 1}
+    effect:
+      rid: -2
+  - itemName: Item 84
+    amount: 85
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058495
+  - itemName: Item 85
+    amount: 86
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058496
+  - itemName: Item 86
+    amount: 87
+    size: {x: 1, y: 1}
+    effect:
+      rid: -2
+  - itemName: Item 87
+    amount: 88
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058497
+  - itemName: Item 88
+    amount: 89
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058498
+  - itemName: Item 89
+    amount: 90
+    size: {x: 1, y: 1}
+    effect:
+      rid: -2
+  - itemName: Item 90
+    amount: 91
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058499
+  - itemName: Item 91
+    amount: 92
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058500
+  - itemName: Item 92
+    amount: 93
+    size: {x: 1, y: 1}
+    effect:
+      rid: -2
+  - itemName: Item 93
+    amount: 94
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058501
+  - itemName: Item 94
+    amount: 95
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058502
+  - itemName: Item 95
+    amount: 96
+    size: {x: 1, y: 1}
+    effect:
+      rid: -2
+  - itemName: Item 96
+    amount: 97
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058503
+  - itemName: Item 97
+    amount: 98
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058504
+  - itemName: Item 98
+    amount: 99
+    size: {x: 1, y: 1}
+    effect:
+      rid: -2
+  - itemName: Item 99
+    amount: 100
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058505
+  - itemName: Item 100
+    amount: 101
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058506
+  - itemName: Item 101
+    amount: 102
+    size: {x: 1, y: 1}
+    effect:
+      rid: -2
+  - itemName: Item 102
+    amount: 103
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058507
+  - itemName: Item 103
+    amount: 104
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058508
+  - itemName: Item 104
+    amount: 105
+    size: {x: 1, y: 1}
+    effect:
+      rid: -2
+  - itemName: Item 105
+    amount: 106
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058509
+  - itemName: Item 106
+    amount: 107
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058510
+  - itemName: Item 107
+    amount: 108
+    size: {x: 1, y: 1}
+    effect:
+      rid: -2
+  - itemName: Item 108
+    amount: 109
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058511
+  - itemName: Item 109
+    amount: 110
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058512
+  - itemName: Item 110
+    amount: 111
+    size: {x: 1, y: 1}
+    effect:
+      rid: -2
+  - itemName: Item 111
+    amount: 112
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058513
+  - itemName: Item 112
+    amount: 113
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058514
+  - itemName: Item 113
+    amount: 114
+    size: {x: 1, y: 1}
+    effect:
+      rid: -2
+  - itemName: Item 114
+    amount: 115
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058515
+  - itemName: Item 115
+    amount: 116
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058516
+  - itemName: Item 116
+    amount: 117
+    size: {x: 1, y: 1}
+    effect:
+      rid: -2
+  - itemName: Item 117
+    amount: 118
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058517
+  - itemName: Item 118
+    amount: 119
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058518
+  - itemName: Item 119
+    amount: 120
+    size: {x: 1, y: 1}
+    effect:
+      rid: -2
+  - itemName: Item 120
+    amount: 121
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058519
+  - itemName: Item 121
+    amount: 122
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058520
+  - itemName: Item 122
+    amount: 123
+    size: {x: 1, y: 1}
+    effect:
+      rid: -2
+  - itemName: Item 123
+    amount: 124
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058521
+  - itemName: Item 124
+    amount: 125
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058522
+  - itemName: Item 125
+    amount: 126
+    size: {x: 1, y: 1}
+    effect:
+      rid: -2
+  - itemName: Item 126
+    amount: 127
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058523
+  - itemName: Item 127
+    amount: 128
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058524
+  - itemName: Item 128
+    amount: 129
+    size: {x: 1, y: 1}
+    effect:
+      rid: -2
+  - itemName: Item 129
+    amount: 130
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058525
+  - itemName: Item 130
+    amount: 131
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058526
+  - itemName: Item 131
+    amount: 132
+    size: {x: 1, y: 1}
+    effect:
+      rid: -2
+  - itemName: Item 132
+    amount: 133
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058527
+  - itemName: Item 133
+    amount: 134
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058528
+  - itemName: Item 134
+    amount: 135
+    size: {x: 1, y: 1}
+    effect:
+      rid: -2
+  - itemName: Item 135
+    amount: 136
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058529
+  - itemName: Item 136
+    amount: 137
+    size: {x: 1, y: 1}
+    effect:
+      rid: 2346367120311058530
+  scoresByPlayer:
+    keyData:
+    - 
+    valueData: 00000000
+  effect:
+    rid: 3658249009839210500
+  renamableEffect:
+    rid: 2346367074954903552
+  effects:
+  - rid: 2346367120311058531
+  - rid: 2346367120311058532
+  - rid: 2346367120311058533
+  effectsByInterface: []
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 2346367074954903552
+      type: {class: GazeDemoRenamableEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        amount: 25
+    - rid: 2346367120311058439
+      type: {class: GazeDemoHealEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        hitPoints: 0
+    - rid: 2346367120311058440
+      type: {class: GazeDemoDamageEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        damage: 1
+        critical: 0
+    - rid: 2346367120311058441
+      type: {class: GazeDemoHealEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        hitPoints: 3
+    - rid: 2346367120311058442
+      type: {class: GazeDemoDamageEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        damage: 4
+        critical: 1
+    - rid: 2346367120311058443
+      type: {class: GazeDemoHealEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        hitPoints: 6
+    - rid: 2346367120311058444
+      type: {class: GazeDemoDamageEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        damage: 7
+        critical: 0
+    - rid: 2346367120311058445
+      type: {class: GazeDemoHealEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        hitPoints: 9
+    - rid: 2346367120311058446
+      type: {class: GazeDemoDamageEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        damage: 10
+        critical: 1
+    - rid: 2346367120311058447
+      type: {class: GazeDemoHealEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        hitPoints: 12
+    - rid: 2346367120311058448
+      type: {class: GazeDemoDamageEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        damage: 13
+        critical: 0
+    - rid: 2346367120311058449
+      type: {class: GazeDemoHealEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        hitPoints: 15
+    - rid: 2346367120311058450
+      type: {class: GazeDemoDamageEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        damage: 16
+        critical: 1
+    - rid: 2346367120311058451
+      type: {class: GazeDemoHealEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        hitPoints: 18
+    - rid: 2346367120311058452
+      type: {class: GazeDemoDamageEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        damage: 19
+        critical: 0
+    - rid: 2346367120311058453
+      type: {class: GazeDemoHealEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        hitPoints: 21
+    - rid: 2346367120311058454
+      type: {class: GazeDemoDamageEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        damage: 22
+        critical: 1
+    - rid: 2346367120311058455
+      type: {class: GazeDemoHealEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        hitPoints: 24
+    - rid: 2346367120311058456
+      type: {class: GazeDemoDamageEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        damage: 25
+        critical: 0
+    - rid: 2346367120311058457
+      type: {class: GazeDemoHealEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        hitPoints: 27
+    - rid: 2346367120311058458
+      type: {class: GazeDemoDamageEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        damage: 28
+        critical: 1
+    - rid: 2346367120311058459
+      type: {class: GazeDemoHealEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        hitPoints: 30
+    - rid: 2346367120311058460
+      type: {class: GazeDemoDamageEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        damage: 31
+        critical: 0
+    - rid: 2346367120311058461
+      type: {class: GazeDemoHealEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        hitPoints: 33
+    - rid: 2346367120311058462
+      type: {class: GazeDemoDamageEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        damage: 34
+        critical: 1
+    - rid: 2346367120311058463
+      type: {class: GazeDemoHealEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        hitPoints: 36
+    - rid: 2346367120311058464
+      type: {class: GazeDemoDamageEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        damage: 37
+        critical: 0
+    - rid: 2346367120311058465
+      type: {class: GazeDemoHealEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        hitPoints: 39
+    - rid: 2346367120311058466
+      type: {class: GazeDemoDamageEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        damage: 40
+        critical: 1
+    - rid: 2346367120311058467
+      type: {class: GazeDemoHealEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        hitPoints: 42
+    - rid: 2346367120311058468
+      type: {class: GazeDemoDamageEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        damage: 43
+        critical: 0
+    - rid: 2346367120311058469
+      type: {class: GazeDemoHealEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        hitPoints: 45
+    - rid: 2346367120311058470
+      type: {class: GazeDemoDamageEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        damage: 46
+        critical: 1
+    - rid: 2346367120311058471
+      type: {class: GazeDemoHealEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        hitPoints: 48
+    - rid: 2346367120311058472
+      type: {class: GazeDemoDamageEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        damage: 49
+        critical: 0
+    - rid: 2346367120311058473
+      type: {class: GazeDemoHealEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        hitPoints: 51
+    - rid: 2346367120311058474
+      type: {class: GazeDemoDamageEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        damage: 52
+        critical: 1
+    - rid: 2346367120311058475
+      type: {class: GazeDemoHealEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        hitPoints: 54
+    - rid: 2346367120311058476
+      type: {class: GazeDemoDamageEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        damage: 55
+        critical: 0
+    - rid: 2346367120311058477
+      type: {class: GazeDemoHealEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        hitPoints: 57
+    - rid: 2346367120311058478
+      type: {class: GazeDemoDamageEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        damage: 58
+        critical: 1
+    - rid: 2346367120311058479
+      type: {class: GazeDemoHealEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        hitPoints: 60
+    - rid: 2346367120311058480
+      type: {class: GazeDemoDamageEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        damage: 61
+        critical: 0
+    - rid: 2346367120311058481
+      type: {class: GazeDemoHealEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        hitPoints: 63
+    - rid: 2346367120311058482
+      type: {class: GazeDemoDamageEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        damage: 64
+        critical: 1
+    - rid: 2346367120311058483
+      type: {class: GazeDemoHealEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        hitPoints: 66
+    - rid: 2346367120311058484
+      type: {class: GazeDemoDamageEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        damage: 67
+        critical: 0
+    - rid: 2346367120311058485
+      type: {class: GazeDemoHealEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        hitPoints: 69
+    - rid: 2346367120311058486
+      type: {class: GazeDemoDamageEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        damage: 70
+        critical: 1
+    - rid: 2346367120311058487
+      type: {class: GazeDemoHealEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        hitPoints: 72
+    - rid: 2346367120311058488
+      type: {class: GazeDemoDamageEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        damage: 73
+        critical: 0
+    - rid: 2346367120311058489
+      type: {class: GazeDemoHealEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        hitPoints: 75
+    - rid: 2346367120311058490
+      type: {class: GazeDemoDamageEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        damage: 76
+        critical: 1
+    - rid: 2346367120311058491
+      type: {class: GazeDemoHealEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        hitPoints: 78
+    - rid: 2346367120311058492
+      type: {class: GazeDemoDamageEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        damage: 79
+        critical: 0
+    - rid: 2346367120311058493
+      type: {class: GazeDemoHealEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        hitPoints: 81
+    - rid: 2346367120311058494
+      type: {class: GazeDemoDamageEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        damage: 82
+        critical: 1
+    - rid: 2346367120311058495
+      type: {class: GazeDemoHealEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        hitPoints: 84
+    - rid: 2346367120311058496
+      type: {class: GazeDemoDamageEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        damage: 85
+        critical: 0
+    - rid: 2346367120311058497
+      type: {class: GazeDemoHealEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        hitPoints: 87
+    - rid: 2346367120311058498
+      type: {class: GazeDemoDamageEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        damage: 88
+        critical: 1
+    - rid: 2346367120311058499
+      type: {class: GazeDemoHealEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        hitPoints: 90
+    - rid: 2346367120311058500
+      type: {class: GazeDemoDamageEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        damage: 91
+        critical: 0
+    - rid: 2346367120311058501
+      type: {class: GazeDemoHealEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        hitPoints: 93
+    - rid: 2346367120311058502
+      type: {class: GazeDemoDamageEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        damage: 94
+        critical: 1
+    - rid: 2346367120311058503
+      type: {class: GazeDemoHealEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        hitPoints: 96
+    - rid: 2346367120311058504
+      type: {class: GazeDemoDamageEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        damage: 97
+        critical: 0
+    - rid: 2346367120311058505
+      type: {class: GazeDemoHealEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        hitPoints: 99
+    - rid: 2346367120311058506
+      type: {class: GazeDemoDamageEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        damage: 100
+        critical: 1
+    - rid: 2346367120311058507
+      type: {class: GazeDemoHealEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        hitPoints: 102
+    - rid: 2346367120311058508
+      type: {class: GazeDemoDamageEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        damage: 103
+        critical: 0
+    - rid: 2346367120311058509
+      type: {class: GazeDemoHealEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        hitPoints: 105
+    - rid: 2346367120311058510
+      type: {class: GazeDemoDamageEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        damage: 106
+        critical: 1
+    - rid: 2346367120311058511
+      type: {class: GazeDemoHealEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        hitPoints: 108
+    - rid: 2346367120311058512
+      type: {class: GazeDemoDamageEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        damage: 109
+        critical: 0
+    - rid: 2346367120311058513
+      type: {class: GazeDemoHealEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        hitPoints: 111
+    - rid: 2346367120311058514
+      type: {class: GazeDemoDamageEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        damage: 112
+        critical: 1
+    - rid: 2346367120311058515
+      type: {class: GazeDemoHealEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        hitPoints: 114
+    - rid: 2346367120311058516
+      type: {class: GazeDemoDamageEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        damage: 115
+        critical: 0
+    - rid: 2346367120311058517
+      type: {class: GazeDemoHealEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        hitPoints: 117
+    - rid: 2346367120311058518
+      type: {class: GazeDemoDamageEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        damage: 118
+        critical: 1
+    - rid: 2346367120311058519
+      type: {class: GazeDemoHealEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        hitPoints: 120
+    - rid: 2346367120311058520
+      type: {class: GazeDemoDamageEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        damage: 121
+        critical: 0
+    - rid: 2346367120311058521
+      type: {class: GazeDemoHealEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        hitPoints: 123
+    - rid: 2346367120311058522
+      type: {class: GazeDemoDamageEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        damage: 124
+        critical: 1
+    - rid: 2346367120311058523
+      type: {class: GazeDemoHealEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        hitPoints: 126
+    - rid: 2346367120311058524
+      type: {class: GazeDemoDamageEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        damage: 127
+        critical: 0
+    - rid: 2346367120311058525
+      type: {class: GazeDemoHealEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        hitPoints: 129
+    - rid: 2346367120311058526
+      type: {class: GazeDemoDamageEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        damage: 130
+        critical: 1
+    - rid: 2346367120311058527
+      type: {class: GazeDemoHealEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        hitPoints: 132
+    - rid: 2346367120311058528
+      type: {class: GazeDemoDamageEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        damage: 133
+        critical: 0
+    - rid: 2346367120311058529
+      type: {class: GazeDemoHealEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        hitPoints: 135
+    - rid: 2346367120311058530
+      type: {class: GazeDemoDamageEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        damage: 136
+        critical: 1
+    - rid: 2346367120311058531
+      type: {class: GazeDemoHealEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        hitPoints: 10
+    - rid: 2346367120311058532
+      type: {class: GazeDemoDamageEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        damage: 4
+        critical: 0
+    - rid: 2346367120311058533
+      type: {class: GazeDemoBuffEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        modifier:
+          stat: 0
+          delta: 1
+          stacks: 0
+        duration: 5
+    - rid: 3658249009839210496
+      type: {class: GazeDemoDamageEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        damage: 12
+        critical: 1
+    - rid: 3658249009839210497
+      type: {class: GazeDemoHealEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        hitPoints: 25
+    - rid: 3658249009839210498
+      type: {class: GazeDemoDamageEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        damage: 8
+        critical: 0
+    - rid: 3658249009839210499
+      type: {class: GazeDemoHealEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        hitPoints: 25
+    - rid: 3658249009839210500
+      type: {class: GazeDemoDamageEffect, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        note: base
+        damage: 99
+        critical: 1
+--- !u!4 &185588278
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185588276}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1238916428
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1238916430}
+  - component: {fileID: 1238916429}
+  m_Layer: 0
+  m_Name: Weapon_Kestrel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1238916429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1238916428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3737964ef0b4b3faabf4d3b4d9dfbb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponId: kestrel_mk2
+  muzzle: {fileID: 0}
+  sustainedDps: 362.66666
+  damagePerRound: 34
+  roundsPerMinute: 640
+  damageFalloff:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: -0.0054166666
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 120
+      value: 0.35
+      inSlope: -0.0054166666
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadDegrees: {x: 0.4, y: 3.5}
+  recoilKick: {x: 0.2, y: 1.4, z: 0.35}
+  fireMode:
+    rid: 2346367074954903554
+  hasScope: 1
+  scopeZoom: 4
+  ironSightAccuracy: 0.62
+  holdBreathSeconds: 3.5
+  hipFireBonus: 0.15
+  ammoType: 1
+  reloadSeconds: 2.1
+  reserves:
+    keyData: 000000000100000002000000
+    valueData:
+    - note: Standard issue
+      rounds: 180
+      capacity: 240
+    - note: Swappable cell
+      rounds: 4
+      capacity: 6
+    - note: Underbarrel only
+      rounds: 2
+      capacity: 4
+  references:
+    version: 2
+    RefIds:
+    - rid: 2346367074954903554
+      type: {class: BurstFire, ns: GrayWolf.Gaze.Demo, asm: Assembly-CSharp}
+      data:
+        roundsPerBurst: 3
+        secondsBetweenBursts: 0.28
+--- !u!4 &1238916430
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1238916428}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2095483517
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2095483519}
+  - component: {fileID: 2095483518}
+  m_Layer: 0
+  m_Name: WaveTable
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2095483518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2095483517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37e229de35fe56b4a8b5711fbbf57a44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  runId: crypt_survival_a
+  difficulty: 3
+  seed: 1373
+  wavesToBuild: 45
+  runLength: 38:34
+  totalBodies: 728
+  waves:
+  - waveName: Opening Sweep
+    durationSeconds: 36
+    pressure: 0.85
+    bossWave: 0
+    boss: 5
+    bossGate: 0
+    groups:
+    - unit: 0
+      count: 6
+      gate: 3
+      delaySeconds: 0
+    - unit: 0
+      count: 6
+      gate: 0
+      delaySeconds: 12
+  - waveName: Stair Press
+    durationSeconds: 36
+    pressure: 0.85
+    bossWave: 0
+    boss: 5
+    bossGate: 0
+    groups:
+    - unit: 0
+      count: 6
+      gate: 4
+      delaySeconds: 0
+    - unit: 0
+      count: 6
+      gate: 3
+      delaySeconds: 12
+  - waveName: Drain Rush
+    durationSeconds: 37
+    pressure: 0.9
+    bossWave: 0
+    boss: 5
+    bossGate: 0
+    groups:
+    - unit: 0
+      count: 4
+      gate: 1
+      delaySeconds: 0
+    - unit: 1
+      count: 6
+      gate: 1
+      delaySeconds: 12
+  - waveName: Rabble
+    durationSeconds: 37
+    pressure: 0.9
+    bossWave: 0
+    boss: 5
+    bossGate: 0
+    groups:
+    - unit: 0
+      count: 7
+      gate: 1
+      delaySeconds: 0
+    - unit: 1
+      count: 4
+      gate: 2
+      delaySeconds: 12
+  - waveName: Bone March
+    durationSeconds: 38
+    pressure: 0.95
+    bossWave: 0
+    boss: 5
+    bossGate: 0
+    groups:
+    - unit: 1
+      count: 3
+      gate: 0
+      delaySeconds: 0
+    - unit: 0
+      count: 6
+      gate: 0
+      delaySeconds: 13
+  - waveName: Loose Hounds
+    durationSeconds: 38
+    pressure: 1
+    bossWave: 0
+    boss: 5
+    bossGate: 0
+    groups:
+    - unit: 0
+      count: 4
+      gate: 2
+      delaySeconds: 0
+    - unit: 1
+      count: 5
+      gate: 0
+      delaySeconds: 13
+  - waveName: Torchlight Push
+    durationSeconds: 39
+    pressure: 1
+    bossWave: 0
+    boss: 5
+    bossGate: 0
+    groups:
+    - unit: 1
+      count: 6
+      gate: 4
+      delaySeconds: 0
+    - unit: 0
+      count: 8
+      gate: 1
+      delaySeconds: 13
+  - waveName: Flanking Dash
+    durationSeconds: 39
+    pressure: 1.05
+    bossWave: 0
+    boss: 5
+    bossGate: 0
+    groups:
+    - unit: 2
+      count: 3
+      gate: 2
+      delaySeconds: 0
+    - unit: 0
+      count: 4
+      gate: 1
+      delaySeconds: 8
+    - unit: 1
+      count: 6
+      gate: 1
+      delaySeconds: 16
+    - unit: 1
+      count: 3
+      gate: 3
+      delaySeconds: 23
+  - waveName: Opening Sweep 2
+    durationSeconds: 40
+    pressure: 1.05
+    bossWave: 0
+    boss: 5
+    bossGate: 0
+    groups:
+    - unit: 0
+      count: 6
+      gate: 3
+      delaySeconds: 0
+    - unit: 2
+      count: 2
+      gate: 3
+      delaySeconds: 10
+    - unit: 2
+      count: 2
+      gate: 4
+      delaySeconds: 20
+  - waveName: Warden Arena
+    durationSeconds: 90
+    pressure: 1.1
+    bossWave: 1
+    boss: 5
+    bossGate: 2
+    groups:
+    - unit: 2
+      count: 2
+      gate: 1
+      delaySeconds: 0
+    - unit: 0
+      count: 4
+      gate: 1
+      delaySeconds: 30
+  - waveName: Stair Press 2
+    durationSeconds: 41
+    pressure: 1.15
+    bossWave: 0
+    boss: 5
+    bossGate: 0
+    groups:
+    - unit: 1
+      count: 3
+      gate: 2
+      delaySeconds: 0
+    - unit: 0
+      count: 4
+      gate: 4
+      delaySeconds: 8
+    - unit: 1
+      count: 5
+      gate: 1
+      delaySeconds: 16
+    - unit: 0
+      count: 7
+      gate: 3
+      delaySeconds: 25
+  - waveName: Shield Line
+    durationSeconds: 42
+    pressure: 1.15
+    bossWave: 0
+    boss: 5
+    bossGate: 0
+    groups:
+    - unit: 2
+      count: 4
+      gate: 2
+      delaySeconds: 0
+    - unit: 3
+      count: 3
+      gate: 3
+      delaySeconds: 10
+    - unit: 0
+      count: 4
+      gate: 4
+      delaySeconds: 21
+  - waveName: Sprint Line
+    durationSeconds: 42
+    pressure: 1.2
+    bossWave: 0
+    boss: 5
+    bossGate: 0
+    groups:
+    - unit: 1
+      count: 5
+      gate: 2
+      delaySeconds: 0
+    - unit: 3
+      count: 3
+      gate: 0
+      delaySeconds: 10
+    - unit: 3
+      count: 1
+      gate: 1
+      delaySeconds: 21
+  - waveName: Locked Ranks
+    durationSeconds: 43
+    pressure: 1.2
+    bossWave: 0
+    boss: 5
+    bossGate: 0
+    groups:
+    - unit: 3
+      count: 1
+      gate: 1
+      delaySeconds: 0
+    - unit: 2
+      count: 3
+      gate: 1
+      delaySeconds: 14
+  - waveName: Vent Bloom
+    durationSeconds: 43
+    pressure: 1.25
+    bossWave: 0
+    boss: 5
+    bossGate: 0
+    groups:
+    - unit: 3
+      count: 1
+      gate: 3
+      delaySeconds: 0
+    - unit: 3
+      count: 3
+      gate: 0
+      delaySeconds: 14
+  - waveName: Rabble 2
+    durationSeconds: 44
+    pressure: 1.3
+    bossWave: 0
+    boss: 5
+    bossGate: 0
+    groups:
+    - unit: 0
+      count: 7
+      gate: 3
+      delaySeconds: 0
+    - unit: 2
+      count: 3
+      gate: 1
+      delaySeconds: 11
+    - unit: 0
+      count: 7
+      gate: 2
+      delaySeconds: 22
+  - waveName: Scattered Pack
+    durationSeconds: 44
+    pressure: 1.3
+    bossWave: 0
+    boss: 5
+    bossGate: 0
+    groups:
+    - unit: 0
+      count: 7
+      gate: 2
+      delaySeconds: 0
+    - unit: 3
+      count: 3
+      gate: 2
+      delaySeconds: 9
+    - unit: 1
+      count: 4
+      gate: 2
+      delaySeconds: 18
+    - unit: 1
+      count: 5
+      gate: 3
+      delaySeconds: 26
+  - waveName: Bone March 2
+    durationSeconds: 45
+    pressure: 1.35
+    bossWave: 0
+    boss: 5
+    bossGate: 0
+    groups:
+    - unit: 3
+      count: 1
+      gate: 1
+      delaySeconds: 0
+    - unit: 2
+      count: 2
+      gate: 0
+      delaySeconds: 9
+    - unit: 0
+      count: 6
+      gate: 1
+      delaySeconds: 18
+    - unit: 1
+      count: 6
+      gate: 3
+      delaySeconds: 27
+  - waveName: Drain Rush 2
+    durationSeconds: 46
+    pressure: 1.35
+    bossWave: 0
+    boss: 5
+    bossGate: 0
+    groups:
+    - unit: 1
+      count: 4
+      gate: 3
+      delaySeconds: 0
+    - unit: 3
+      count: 1
+      gate: 0
+      delaySeconds: 9
+    - unit: 2
+      count: 3
+      gate: 2
+      delaySeconds: 18
+    - unit: 3
+      count: 3
+      gate: 0
+      delaySeconds: 28
+  - waveName: The Warden Returns
+    durationSeconds: 90
+    pressure: 1.4
+    bossWave: 1
+    boss: 5
+    bossGate: 2
+    groups:
+    - unit: 0
+      count: 6
+      gate: 1
+      delaySeconds: 0
+    - unit: 2
+      count: 3
+      gate: 3
+      delaySeconds: 30
+  - waveName: Torchlight Push 2
+    durationSeconds: 47
+    pressure: 1.45
+    bossWave: 0
+    boss: 5
+    bossGate: 0
+    groups:
+    - unit: 2
+      count: 2
+      gate: 4
+      delaySeconds: 0
+    - unit: 0
+      count: 4
+      gate: 3
+      delaySeconds: 9
+    - unit: 0
+      count: 7
+      gate: 1
+      delaySeconds: 19
+    - unit: 1
+      count: 6
+      gate: 1
+      delaySeconds: 28
+  - waveName: Opening Sweep 3
+    durationSeconds: 47
+    pressure: 1.45
+    bossWave: 0
+    boss: 5
+    bossGate: 0
+    groups:
+    - unit: 0
+      count: 8
+      gate: 0
+      delaySeconds: 0
+    - unit: 0
+      count: 7
+      gate: 2
+      delaySeconds: 12
+    - unit: 1
+      count: 5
+      gate: 0
+      delaySeconds: 24
+  - waveName: Bulwark
+    durationSeconds: 48
+    pressure: 1.5
+    bossWave: 0
+    boss: 5
+    bossGate: 0
+    groups:
+    - unit: 2
+      count: 3
+      gate: 2
+      delaySeconds: 0
+    - unit: 2
+      count: 2
+      gate: 2
+      delaySeconds: 16
+  - waveName: Stair Press 3
+    durationSeconds: 48
+    pressure: 1.5
+    bossWave: 0
+    boss: 5
+    bossGate: 0
+    groups:
+    - unit: 0
+      count: 7
+      gate: 2
+      delaySeconds: 0
+    - unit: 0
+      count: 5
+      gate: 4
+      delaySeconds: 10
+    - unit: 2
+      count: 2
+      gate: 3
+      delaySeconds: 19
+    - unit: 1
+      count: 6
+      gate: 1
+      delaySeconds: 29
+  - waveName: Loose Hounds 2
+    durationSeconds: 49
+    pressure: 1.55
+    bossWave: 0
+    boss: 5
+    bossGate: 0
+    groups:
+    - unit: 1
+      count: 5
+      gate: 3
+      delaySeconds: 0
+    - unit: 1
+      count: 3
+      gate: 1
+      delaySeconds: 12
+    - unit: 2
+      count: 2
+      gate: 4
+      delaySeconds: 24
+  - waveName: Slow Advance
+    durationSeconds: 49
+    pressure: 1.6
+    bossWave: 0
+    boss: 5
+    bossGate: 0
+    groups:
+    - unit: 2
+      count: 3
+      gate: 1
+      delaySeconds: 0
+    - unit: 4
+      count: 1
+      gate: 3
+      delaySeconds: 16
+  - waveName: Flanking Dash 2
+    durationSeconds: 50
+    pressure: 1.6
+    bossWave: 0
+    boss: 5
+    bossGate: 0
+    groups:
+    - unit: 1
+      count: 3
+      gate: 1
+      delaySeconds: 0
+    - unit: 2
+      count: 2
+      gate: 0
+      delaySeconds: 12
+    - unit: 3
+      count: 2
+      gate: 4
+      delaySeconds: 25
+  - waveName: Sprint Line 2
+    durationSeconds: 51
+    pressure: 1.65
+    bossWave: 0
+    boss: 5
+    bossGate: 0
+    groups:
+    - unit: 2
+      count: 2
+      gate: 0
+      delaySeconds: 0
+    - unit: 1
+      count: 4
+      gate: 0
+      delaySeconds: 10
+    - unit: 3
+      count: 3
+      gate: 4
+      delaySeconds: 20
+    - unit: 3
+      count: 1
+      gate: 2
+      delaySeconds: 31
+  - waveName: Meat Grinder
+    durationSeconds: 51
+    pressure: 1.65
+    bossWave: 0
+    boss: 5
+    bossGate: 0
+    groups:
+    - unit: 4
+      count: 2
+      gate: 0
+      delaySeconds: 0
+    - unit: 3
+      count: 1
+      gate: 3
+      delaySeconds: 10
+    - unit: 4
+      count: 2
+      gate: 0
+      delaySeconds: 20
+    - unit: 1
+      count: 3
+      gate: 4
+      delaySeconds: 31
+  - waveName: Warden Unchained
+    durationSeconds: 90
+    pressure: 1.7
+    bossWave: 1
+    boss: 5
+    bossGate: 2
+    groups:
+    - unit: 4
+      count: 1
+      gate: 4
+      delaySeconds: 0
+    - unit: 0
+      count: 5
+      gate: 4
+      delaySeconds: 30
+  - waveName: Rabble 3
+    durationSeconds: 52
+    pressure: 1.75
+    bossWave: 0
+    boss: 5
+    bossGate: 0
+    groups:
+    - unit: 0
+      count: 5
+      gate: 4
+      delaySeconds: 0
+    - unit: 1
+      count: 6
+      gate: 3
+      delaySeconds: 10
+    - unit: 0
+      count: 5
+      gate: 2
+      delaySeconds: 21
+    - unit: 0
+      count: 6
+      gate: 0
+      delaySeconds: 31
+  - waveName: Battering Ram
+    durationSeconds: 53
+    pressure: 1.75
+    bossWave: 0
+    boss: 5
+    bossGate: 0
+    groups:
+    - unit: 4
+      count: 1
+      gate: 1
+      delaySeconds: 0
+    - unit: 4
+      count: 1
+      gate: 2
+      delaySeconds: 18
+  - waveName: Scattered Pack 2
+    durationSeconds: 53
+    pressure: 1.8
+    bossWave: 0
+    boss: 5
+    bossGate: 0
+    groups:
+    - unit: 4
+      count: 2
+      gate: 0
+      delaySeconds: 0
+    - unit: 1
+      count: 5
+      gate: 4
+      delaySeconds: 13
+    - unit: 1
+      count: 4
+      gate: 0
+      delaySeconds: 26
+  - waveName: Bone March 3
+    durationSeconds: 54
+    pressure: 1.8
+    bossWave: 0
+    boss: 5
+    bossGate: 0
+    groups:
+    - unit: 3
+      count: 2
+      gate: 4
+      delaySeconds: 0
+    - unit: 3
+      count: 1
+      gate: 1
+      delaySeconds: 11
+    - unit: 0
+      count: 5
+      gate: 1
+      delaySeconds: 22
+    - unit: 4
+      count: 1
+      gate: 1
+      delaySeconds: 32
+  - waveName: Acid Gallery
+    durationSeconds: 54
+    pressure: 1.85
+    bossWave: 0
+    boss: 5
+    bossGate: 0
+    groups:
+    - unit: 3
+      count: 3
+      gate: 1
+      delaySeconds: 0
+    - unit: 4
+      count: 2
+      gate: 2
+      delaySeconds: 18
+  - waveName: Drain Rush 3
+    durationSeconds: 55
+    pressure: 1.9
+    bossWave: 0
+    boss: 5
+    bossGate: 0
+    groups:
+    - unit: 0
+      count: 4
+      gate: 4
+      delaySeconds: 0
+    - unit: 1
+      count: 5
+      gate: 0
+      delaySeconds: 11
+    - unit: 1
+      count: 5
+      gate: 2
+      delaySeconds: 22
+    - unit: 4
+      count: 1
+      gate: 2
+      delaySeconds: 33
+  - waveName: Torchlight Push 3
+    durationSeconds: 56
+    pressure: 1.9
+    bossWave: 0
+    boss: 5
+    bossGate: 0
+    groups:
+    - unit: 3
+      count: 2
+      gate: 4
+      delaySeconds: 0
+    - unit: 0
+      count: 7
+      gate: 3
+      delaySeconds: 19
+  - waveName: Loose Hounds 3
+    durationSeconds: 56
+    pressure: 1.95
+    bossWave: 0
+    boss: 5
+    bossGate: 0
+    groups:
+    - unit: 1
+      count: 5
+      gate: 3
+      delaySeconds: 0
+    - unit: 2
+      count: 3
+      gate: 2
+      delaySeconds: 19
+  - waveName: Opening Sweep 4
+    durationSeconds: 57
+    pressure: 1.95
+    bossWave: 0
+    boss: 5
+    bossGate: 0
+    groups:
+    - unit: 2
+      count: 3
+      gate: 2
+      delaySeconds: 0
+    - unit: 0
+      count: 6
+      gate: 4
+      delaySeconds: 14
+    - unit: 1
+      count: 6
+      gate: 2
+      delaySeconds: 28
+  - waveName: Final Watch
+    durationSeconds: 90
+    pressure: 2
+    bossWave: 1
+    boss: 5
+    bossGate: 2
+    groups:
+    - unit: 2
+      count: 3
+      gate: 4
+      delaySeconds: 0
+    - unit: 0
+      count: 4
+      gate: 2
+      delaySeconds: 30
+  - waveName: Flanking Dash 3
+    durationSeconds: 58
+    pressure: 2.05
+    bossWave: 0
+    boss: 5
+    bossGate: 0
+    groups:
+    - unit: 1
+      count: 5
+      gate: 2
+      delaySeconds: 0
+    - unit: 1
+      count: 5
+      gate: 0
+      delaySeconds: 12
+    - unit: 4
+      count: 1
+      gate: 0
+      delaySeconds: 23
+    - unit: 1
+      count: 4
+      gate: 2
+      delaySeconds: 35
+  - waveName: Stair Press 4
+    durationSeconds: 58
+    pressure: 2.05
+    bossWave: 0
+    boss: 5
+    bossGate: 0
+    groups:
+    - unit: 2
+      count: 3
+      gate: 3
+      delaySeconds: 0
+    - unit: 0
+      count: 6
+      gate: 3
+      delaySeconds: 14
+    - unit: 4
+      count: 1
+      gate: 3
+      delaySeconds: 29
+  - waveName: Corrosion
+    durationSeconds: 59
+    pressure: 2.1
+    bossWave: 0
+    boss: 5
+    bossGate: 0
+    groups:
+    - unit: 3
+      count: 3
+      gate: 4
+      delaySeconds: 0
+    - unit: 0
+      count: 5
+      gate: 3
+      delaySeconds: 12
+    - unit: 3
+      count: 2
+      gate: 4
+      delaySeconds: 24
+    - unit: 3
+      count: 3
+      gate: 1
+      delaySeconds: 35
+  - waveName: Sprint Line 3
+    durationSeconds: 59
+    pressure: 2.1
+    bossWave: 0
+    boss: 5
+    bossGate: 0
+    groups:
+    - unit: 0
+      count: 5
+      gate: 0
+      delaySeconds: 0
+    - unit: 1
+      count: 6
+      gate: 2
+      delaySeconds: 12
+    - unit: 4
+      count: 1
+      gate: 2
+      delaySeconds: 24
+    - unit: 4
+      count: 1
+      gate: 0
+      delaySeconds: 35
+  - waveName: Iron Wall
+    durationSeconds: 60
+    pressure: 2.15
+    bossWave: 0
+    boss: 5
+    bossGate: 0
+    groups:
+    - unit: 4
+      count: 2
+      gate: 2
+      delaySeconds: 0
+    - unit: 2
+      count: 3
+      gate: 3
+      delaySeconds: 20
+--- !u!4 &2095483519
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2095483517}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1660057539 &9223372036854775807
+SceneRoots:
+  m_ObjectHideFlags: 0
+  m_Roots:
+  - {fileID: 185588278}
+  - {fileID: 1238916430}
+  - {fileID: 185161027}
+  - {fileID: 2095483519}

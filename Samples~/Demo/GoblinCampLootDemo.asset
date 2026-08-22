@@ -1,0 +1,81 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8cd14306072420ca49a069030b19a8e, type: 3}
+  m_Name: GoblinCampLootDemo
+  m_EditorClassIdentifier: 
+  drops:
+    keyData:
+    - copper_coin
+    - rusted_dagger
+    - goblin_ear
+    - torn_hide
+    - crude_arrow
+    - stale_ration
+    - oak_shortbow
+    - iron_sword
+    - healing_draught
+    - chieftain_totem
+    - banded_mail
+    - ember_ring
+    - warlord_helm
+    - soulbound_axe
+    - crown_of_the_pit
+    - 
+    valueData:
+    - rarity: 0
+      weight: 220
+      stack: {x: 5, y: 40}
+    - rarity: 0
+      weight: 140
+      stack: {x: 1, y: 1}
+    - rarity: 0
+      weight: 120
+      stack: {x: 1, y: 99}
+    - rarity: 0
+      weight: 110
+      stack: {x: 1, y: 4}
+    - rarity: 0
+      weight: 95
+      stack: {x: 6, y: 24}
+    - rarity: 0
+      weight: 80
+      stack: {x: 1, y: 2}
+    - rarity: 1
+      weight: 45
+      stack: {x: 1, y: 1}
+    - rarity: 1
+      weight: 38
+      stack: {x: 1, y: 1}
+    - rarity: 1
+      weight: 32
+      stack: {x: 1, y: 3}
+    - rarity: 2
+      weight: 14
+      stack: {x: 1, y: 1}
+    - rarity: 2
+      weight: 11
+      stack: {x: 1, y: 1}
+    - rarity: 2
+      weight: 7
+      stack: {x: 1, y: 1}
+    - rarity: 3
+      weight: 3
+      stack: {x: 1, y: 1}
+    - rarity: 3
+      weight: 2
+      stack: {x: 1, y: 1}
+    - rarity: 4
+      weight: 1
+      stack: {x: 1, y: 1}
+    - rarity: 0
+      weight: 0
+      stack: {x: 0, y: 0}
