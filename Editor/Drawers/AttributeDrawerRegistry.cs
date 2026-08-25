@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using GrayWolf.Gaze.Collections;
 using UnityEditor;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 
 namespace GrayWolf.Gaze.Editor
 {
@@ -24,11 +27,14 @@ namespace GrayWolf.Gaze.Editor
         internal static readonly HashSet<Type> MetadataOnlyAttributes = new()
         {
             typeof(SerializeField),
-            typeof(SerializedDictionaryAttribute)
+            typeof(SerializedDictionaryAttribute),
+            typeof(CompilerGeneratedAttribute),
+            typeof(DebuggerBrowsableAttribute),
         };
 
         static readonly Dictionary<Type, List<Type>> _typeToDrawers = new();
         static readonly Dictionary<Type, List<Type>> _attrToDrawers = new();
+        private static readonly HashSet<(Type, string, Type)> _warnedUnhandledAttributes = new();
 
         static AttributeDrawerRegistry() => Rebuild();
 
@@ -37,6 +43,7 @@ namespace GrayWolf.Gaze.Editor
             AttributesWeHandle.Clear();
             _typeToDrawers.Clear();
             _attrToDrawers.Clear();
+            _warnedUnhandledAttributes.Clear();
 
             foreach (var t in TypeCache.GetTypesDerivedFrom<AttributeDrawerBase>())
             {
@@ -140,35 +147,54 @@ namespace GrayWolf.Gaze.Editor
             wrapper.InitializeInternal(inner.Property);
             return wrapper;
         }
-
+        
         public static bool HasDrawersForAllAttributes(SerializedProperty property)
         {
             var field = ReflectionCache.GetFieldInfoAndAttrs(property).field;
-
-            if (field == null) 
+         
+            if (field == null)
                 return false;
-
+         
             foreach (var attrData in field.GetCustomAttributesData())
             {
                 var attrType = attrData.AttributeType;
-                
+         
                 if (!typeof(Attribute).IsAssignableFrom(attrType))
                     continue;
-
-                if(MetadataOnlyAttributes.Contains(attrType))
+         
+                if (MetadataOnlyAttributes.Contains(attrType))
                     continue;
-
-                if (GetDrawersForAttribute(attrType).Count == 0) 
+         
+                if (GetDrawersForAttribute(attrType).Count == 0)
+                {
+                    WarnUnhandled(field, attrType, "no drawer is registered for it");
                     return false;
-                
+                }
+         
                 // Get the real attribute instance (includes ctor args/props)
                 if (field.GetCustomAttributes(attrType, inherit: false).FirstOrDefault() == null)
+                {
+                    WarnUnhandled(field, attrType, "the attribute instance could not be constructed");
                     return false;
+                }
             }
-
+         
             return true;
         }
-        
+
+        private static void WarnUnhandled(FieldInfo field, Type attrType, string reason)
+        {
+            var key = (field.DeclaringType, field.Name, attrType);
+
+            if (!_warnedUnhandledAttributes.Add(key))
+                return;
+
+            Debug.LogWarning(
+                $"[Gaze] '{field.DeclaringType?.Name}.{field.Name}' is using Unity's default drawer because " +
+                $"{reason}: [{attrType.Name.Replace("Attribute", string.Empty)}]. If this attribute carries no " +
+                $"drawing behaviour, add it to MetadataOnlyAttributes to keep the field on Gaze's drawer.");
+        }
+
         // Element-safe forwards (parent array field → each element)
         static readonly HashSet<Type> kForwardToElements = new()
         {
