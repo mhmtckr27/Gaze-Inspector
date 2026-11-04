@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 namespace GrayWolf.Gaze.Editor
@@ -35,7 +36,7 @@ namespace GrayWolf.Gaze.Editor
                 _seeded = true;
                 _anim.expanded = visible;
                 _anim.value = visible ? 1f : 0f;
-                _anim.stamp = Time.realtimeSinceStartup;
+                _anim.stamp = EditorApplication.timeSinceStartup;
             }
 
             if (PropertyTreeGUI.BeginFadeGroup(_anim, visible))

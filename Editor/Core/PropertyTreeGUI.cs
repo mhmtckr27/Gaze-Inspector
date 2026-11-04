@@ -28,7 +28,21 @@ namespace GrayWolf.Gaze.Editor
         private static readonly GUIContent[] _componentLabels = { _xLabel, _yLabel, _zLabel, _wLabel };
         
         private static Dictionary<Rect, string> _lastDrawnRects = new();
-        
+
+        /// <summary>
+        /// Registers <paramref name="rect"/> as the right-click target for <paramref name="property"/>,
+        /// the way every built-in field helper does automatically via <c>_lastDrawnRects</c>. Call this
+        /// from a custom drawer that draws its own label rect but has no single-line control of its own
+        /// (a container drawer), so the property still gets a copy/paste and prefab-override menu.
+        /// </summary>
+        internal static void RegisterPropertyRect(Rect rect, SerializedProperty property)
+        {
+            if (property == null)
+                return;
+
+            _lastDrawnRects[rect] = property.propertyPath;
+        }
+
         internal static void DrawNode(DrawerBase node)
         {
             var resolved = node.Tree.Registry.Resolve(node.Property);
@@ -77,6 +91,16 @@ namespace GrayWolf.Gaze.Editor
         /// </remarks>
         public static void DrawTree(PropertyTree tree)
         {
+            if (_currentFadeGroup != 0)
+            {
+                // A previous OnGUI pass threw before its EndFadeGroup calls ran (e.g. a Layout/Repaint
+                // control-count mismatch from a window resize). Left alone this permanently disables
+                // fade-group animation and the repaint pump it drives, which is what leaves a foldout's
+                // content stuck invisible while its header keeps drawing.
+                _currentFadeGroup = 0;
+                _animatingFadeGroup = -1;
+            }
+
             _lastDrawnRects.Clear();
             GazeMessages.ClearDrawn();
 
@@ -124,6 +148,7 @@ namespace GrayWolf.Gaze.Editor
                     var menu = new GenericMenu();
                     var prop = tree.SerializedObject.FindProperty(r.Value);
                     PropertyClipboard.AddContextMenu(menu, prop);
+                    UnityPropertyMenu.AddUnityItems(menu, prop);
                     tree.ContextMenu = menu;
                     Event.current.Use();
                 }
@@ -1071,14 +1096,26 @@ namespace GrayWolf.Gaze.Editor
             if (on != state.expanded)
             {
                 state.expanded = on;
-                state.stamp = Time.realtimeSinceStartup;
+                state.stamp = EditorApplication.timeSinceStartup;
             }
 
             if (Event.current.type == EventType.Layout)
             {
-                var delta = Time.realtimeSinceStartup - state.stamp;
-                state.value = Mathf.MoveTowards(state.value, on ? 1 : 0, delta * (1f / state.duration));
-                state.stamp = Time.realtimeSinceStartup;
+                // EditorApplication.timeSinceStartup, not Time.realtimeSinceStartup: the latter is the
+                // Player-loop clock and is documented to reset on entering Play Mode (and can jump again
+                // on Stop), which produced a negative delta here. That isn't just "no progress" - when
+                // state.value already sits exactly on target (the steady-state case for an
+                // already-expanded foldout), Mathf.Sign(0) is +1, so MoveTowards moved it AWAY from
+                // target with no floor, driving it to -100+ in one frame. BeginFadeGroup(t) only opens
+                // content while 0 < t < 1, so that alone suppressed this foldout's content indefinitely,
+                // and the same t<=0 check gates the only place that requests another repaint to keep
+                // animating, so nothing forced a corrective frame until something unrelated repainted
+                // this window and the resulting huge positive delta happened to snap it back.
+                // EditorApplication.timeSinceStartup isn't affected by Play Mode transitions, so this
+                // shouldn't go negative in practice; Max/Clamp01 stay as defense in depth regardless.
+                var delta = Mathf.Max(0f, (float)(EditorApplication.timeSinceStartup - state.stamp));
+                state.value = Mathf.Clamp01(Mathf.MoveTowards(state.value, on ? 1 : 0, delta * (1f / state.duration)));
+                state.stamp = EditorApplication.timeSinceStartup;
             }
 
             return BeginFadeGroup(state.value);

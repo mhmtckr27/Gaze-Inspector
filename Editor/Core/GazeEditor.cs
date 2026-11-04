@@ -39,7 +39,18 @@ namespace GrayWolf.Gaze.Editor
             // Not in OnEnable: Unity's own PropertyDrawer constructors resolve named GUIStyles, which
             // needs a current skin.
             if (_tree is not { HasContent: true })
+            {
+                // Drawers populate their per-pass layout state (page indices, row rects, column widths)
+                // on Layout. A tree built during Repaint has none of it yet and draws collection headers
+                // with no rows, so wait for a Layout pass rather than drawing a half-initialised tree.
+                if (Event.current.type != EventType.Layout)
+                {
+                    Repaint();
+                    return;
+                }
+
                 _tree = new PropertyTree(serializedObject);
+            }
 
             serializedObject.Update();
 

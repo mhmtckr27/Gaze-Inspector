@@ -7,7 +7,9 @@ namespace GrayWolf.Gaze.Editor
     {
         public override void Draw(GUIContent label)
         {
-            PropertyTreeGUI.BeginVerticalLayout(GUIContent.none, out _);
+            PropertyTreeGUI.BeginVerticalLayout(GUIContent.none, out var labelRect);
+            PropertyTreeGUI.RegisterPropertyRect(labelRect, Property);
+
             foreach (var child in Children)
             {
                 PropertyTreeGUI.DrawNode(child, child.Data.Label);

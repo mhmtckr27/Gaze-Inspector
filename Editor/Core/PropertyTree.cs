@@ -67,12 +67,15 @@ namespace GrayWolf.Gaze.Editor
 
         internal void RebuildNode(DrawerBase drawer)
         {
-            if (SerializedObject == null) 
+            if (SerializedObject == null)
                 return;
-            
-            var parent = drawer.Parent;
-            var newNode = BuildNode(drawer.Property);
-            newNode.Parent = parent;
+
+            // Resolve returns the same cached instance for an unchanged property path, so this only
+            // ever re-runs InitializeInternal on `drawer` itself - which is the real, intended effect
+            // (e.g. it is what clears SerializedDictionaryDrawer's per-instance caches after a
+            // structural edit). The previously-built local and its Parent reassignment were dead code:
+            // nothing else ever read them.
+            BuildNode(drawer.Property);
         }
         
         internal DrawerBase BuildNode(SerializedProperty property)

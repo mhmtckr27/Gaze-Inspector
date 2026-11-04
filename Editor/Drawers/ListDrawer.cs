@@ -472,13 +472,17 @@ namespace GrayWolf.Gaze.Editor
                 GUI.Label(rect, Data.Label, EditorGuiStyles.LabelLeft);
             }
 
-            if (!showPagination || _pageState.ShowsCountLabel(CountLabelW))
+            using (new EditorGUI.DisabledScope(true))
             {
-                using (new EditorGUI.DisabledScope(true))
-                {
-                    var itemsCountRect = GUILayoutUtility.GetRect(CountLabelW, 0f, GUILayout.ExpandHeight(true), GUILayout.ExpandWidth(false));
+                // Always reserve this rect, even when ShowsCountLabel says not to draw into it: that
+                // decision depends on a header width measured one pass and consumed the next, so on a
+                // window resize Layout and Repaint can disagree about it. Making the GetRect call itself
+                // unconditional keeps both passes allocating the same number of controls regardless, so a
+                // stale width can no longer desync them into a "Getting control N's position in a group
+                // with only M controls" abort mid-list.
+                var itemsCountRect = GUILayoutUtility.GetRect(CountLabelW, 0f, GUILayout.ExpandHeight(true), GUILayout.ExpandWidth(false));
+                if (!showPagination || _pageState.ShowsCountLabel(CountLabelW))
                     EditorGUI.LabelField(itemsCountRect, new GUIContent(GetEntryCountText()), EditorGuiStyles.LabelRight);
-                }
             }
 
             GUILayout.Space(3);
@@ -561,6 +565,7 @@ namespace GrayWolf.Gaze.Editor
         {
             var menu = new GenericMenu();
             PropertyClipboard.AddContextMenu(menu, Property);
+            UnityPropertyMenu.AddUnityItems(menu, Property);
 
             if (Property.arraySize == 0)
                 menu.AddDisabledItem(new GUIContent("Clear Collection"), false);

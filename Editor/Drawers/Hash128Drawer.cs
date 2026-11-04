@@ -26,6 +26,7 @@ namespace GrayWolf.Gaze.Editor
         {
             var menu = new GenericMenu();
             PropertyClipboard.AddContextMenu(menu, Property);
+            UnityPropertyMenu.AddUnityItems(menu, Property);
             highlightArea = _lastDrawnRect;
             return menu;
         }
