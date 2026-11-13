@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Right-clicking the label of an `AnimationCurve` or `ExposedReference` field now
+  opens the property menu (copy, paste, prefab apply and revert).
+- Two Inspectors showing the same object no longer fight over whether a list or
+  dictionary is expanded: expanding it in one expands it in both.
+
 ## [1.1.0] - 2026-11-13
 
 ### Added

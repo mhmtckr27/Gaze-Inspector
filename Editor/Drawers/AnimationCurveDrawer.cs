@@ -22,8 +22,9 @@ namespace GrayWolf.Gaze.Editor
 
         public override void Draw(GUIContent label)
         {
-            PropertyTreeGUI.BeginHorizontalLayout(label, out _);
-            
+            PropertyTreeGUI.BeginHorizontalLayout(label, out var labelRect);
+            PropertyTreeGUI.RegisterPropertyRect(labelRect, Property);
+
             var rect = EditorGUILayout.GetControlRect(label != null, GetHeight());
             using (new EditorGui.MixedValueScope(Property.hasMultipleDifferentValues))
             {

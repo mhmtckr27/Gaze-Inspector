@@ -12,8 +12,9 @@ namespace GrayWolf.Gaze.Editor
 
         public override void Draw(GUIContent label)
         {
-            PropertyTreeGUI.BeginHorizontalLayout(label, out _);
-            
+            PropertyTreeGUI.BeginHorizontalLayout(label, out var labelRect);
+            PropertyTreeGUI.RegisterPropertyRect(labelRect, Property);
+
             var position = EditorGUILayout.GetControlRect(label != null, GetHeight());
             // Label split
 

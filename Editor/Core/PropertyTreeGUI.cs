@@ -1032,11 +1032,25 @@ namespace GrayWolf.Gaze.Editor
             internal int? maxValue;
         }
         
+        /// <summary>
+        /// Whether <paramref name="property"/>'s foldout is open, as Gaze draws it. Read this rather than
+        /// <c>property.isExpanded</c>: each Inspector's SerializedObject keeps its own copy of
+        /// isExpanded, so two Inspectors on the same object disagree about it, while this state is
+        /// shared by every Inspector showing that object.
+        /// </summary>
+        internal static bool IsExpanded(SerializedProperty property)
+        {
+            return PropertyStateStore.GetFoldoutAnimState(property).expanded;
+        }
+
         internal static bool BeginFoldout(SerializedProperty property, bool newExpanded)
         {
             var state = PropertyStateStore.GetFoldoutAnimState(property);
 
-            if (newExpanded != state.expanded)
+            // Compared against isExpanded itself, not just the shared state: an Inspector whose copy went
+            // stale while another Inspector toggled this foldout gets it brought back in line, so whichever
+            // copy Unity persists matches what is drawn.
+            if (property.isExpanded != newExpanded)
                 property.isExpanded = newExpanded;
 
             return BeginFadeGroup(state, newExpanded);

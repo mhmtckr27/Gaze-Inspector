@@ -457,14 +457,17 @@ namespace GrayWolf.Gaze.Editor
         {
             EditorGuiUtility.PushHierarchyMode(false);
 
-            // Read from the property, not from what Foldout returns: BeginFoldout writes the new state
-            // after this runs, so the control count stays identical across the frame that toggles it.
-            var showPagination = _pageState.Paginates && Property.isExpanded;
+            // Read the shared state, not Property.isExpanded: each Inspector keeps its own copy of
+            // isExpanded, and two Inspectors on one object kept flipping the shared animation state between
+            // their two copies. Read before Foldout, not from what it returns: BeginFoldout writes the new
+            // state after this runs, so the control count stays identical across the frame that toggles it.
+            var expanded = PropertyTreeGUI.IsExpanded(Property);
+            var showPagination = _pageState.Paginates && expanded;
 
-            var newExpanded = Property.isExpanded;
+            var newExpanded = expanded;
             if (Property.arraySize > 0)
             {
-                newExpanded = EditorGUI.Foldout(rect, Property.isExpanded, Data.Label, true, EditorGuiStyles.Foldout);
+                newExpanded = EditorGUI.Foldout(rect, expanded, Data.Label, true, EditorGuiStyles.Foldout);
             }
             else
             {
@@ -505,7 +508,8 @@ namespace GrayWolf.Gaze.Editor
                 Property.serializedObject.ApplyModifiedProperties();
                 _elementDrawers.Clear();
                 // Matches the dictionary: adding to a collapsed collection used to hide the new entry.
-                Property.isExpanded = true;
+                // Returned rather than written to isExpanded, so BeginFoldout opens it through the shared state.
+                newExpanded = true;
                 GUI.changed = true;
                 ElementIdDatabase.OnInsert(Property, idx);
             }

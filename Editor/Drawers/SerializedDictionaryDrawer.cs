@@ -251,14 +251,17 @@ namespace GrayWolf.Gaze.Editor
         {
             EditorGuiUtility.PushHierarchyMode(false);
 
-            // Read from the property, not from what Foldout returns: BeginFoldout writes the new state
-            // after this runs, so the control count stays identical across the frame that toggles it.
-            var showPagination = _pageState.Paginates && Property.isExpanded;
+            // Read the shared state, not Property.isExpanded: each Inspector keeps its own copy of
+            // isExpanded, and two Inspectors on one object kept flipping the shared animation state between
+            // their two copies. Read before Foldout, not from what it returns: BeginFoldout writes the new
+            // state after this runs, so the control count stays identical across the frame that toggles it.
+            var expanded = PropertyTreeGUI.IsExpanded(Property);
+            var showPagination = _pageState.Paginates && expanded;
 
-            var newExpanded = Property.isExpanded;
+            var newExpanded = expanded;
             if (ElementCount > 0)
             {
-                newExpanded = EditorGUI.Foldout(rect, Property.isExpanded, Data.Label, true, EditorGuiStyles.Foldout);
+                newExpanded = EditorGUI.Foldout(rect, expanded, Data.Label, true, EditorGuiStyles.Foldout);
             }
             else
             {
@@ -293,7 +296,12 @@ namespace GrayWolf.Gaze.Editor
             using (new EditorGUI.DisabledScope(IsMultiEditing))
             {
                 if (EditorGui.HoverableButton(plusRect, GUIContent.none, EditorGuiStyles.AddButton))
+                {
                     AppendEntry();
+                    // Adding to a collapsed dictionary used to hide the new entry. Returned rather than
+                    // written to isExpanded, so BeginFoldout opens it through the shared state.
+                    newExpanded = true;
+                }
             }
 
             EditorGuiUtility.PopHierarchyMode();
@@ -488,7 +496,6 @@ namespace GrayWolf.Gaze.Editor
 
             State.SearchText = string.Empty;
             State.FocusIndex = Math.Min(keyIndex, valueIndex);
-            Property.isExpanded = true;
             GUI.changed = true;
         }
 
