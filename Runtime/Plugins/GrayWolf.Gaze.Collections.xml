@@ -1,0 +1,194 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GrayWolf.Gaze.Collections</name>
+    </assembly>
+    <members>
+        <member name="T:GrayWolf.Gaze.Collections.SerializedDictionary`2">
+            <summary>
+            A dictionary Unity can serialize, backed by two parallel lists and drawn as an editable table in
+            the inspector.
+            </summary>
+            <remarks>
+            <para>
+            Lookups go through a <see cref="T:System.Collections.Generic.Dictionary`2"/> rebuilt lazily from the serialized
+            lists, so reads are ordinary dictionary reads and the cost of a rebuild is paid once after a
+            mutation or a deserialize rather than per access.
+            </para>
+            <para>
+            Unity's serializer cannot enforce key uniqueness, so a hand-edited asset or a merge can produce
+            duplicate keys. The first occurrence wins, later ones are dropped from the lookup, and each
+            offending key is warned about once. <see cref="P:GrayWolf.Gaze.Collections.SerializedDictionary`2.Count"/> therefore reports distinct keys and can
+            be smaller than the number of serialized rows.
+            </para>
+            <para>
+            <typeparamref name="TKey"/> and <typeparamref name="TValue"/> must both be types Unity can
+            serialize for the contents to survive a domain reload.
+            </para>
+            </remarks>
+            <typeparam name="TKey">Key type. Must be serializable by Unity.</typeparam>
+            <typeparam name="TValue">Value type. Must be serializable by Unity.</typeparam>
+            <seealso cref="T:GrayWolf.Gaze.Collections.SerializedDictionaryAttribute"/>
+        </member>
+        <member name="M:GrayWolf.Gaze.Collections.SerializedDictionary`2.#ctor">
+            <summary>
+            Creates an empty dictionary.
+            </summary>
+        </member>
+        <member name="M:GrayWolf.Gaze.Collections.SerializedDictionary`2.#ctor(System.Collections.Generic.IDictionary{`0,`1})">
+            <summary>
+            Creates a dictionary holding a shallow copy of <paramref name="source"/>.
+            </summary>
+            <param name="source">
+            Entries to copy, in enumeration order. A null source yields an empty dictionary rather than
+            throwing. Reference values are shared with the source, not cloned.
+            </param>
+        </member>
+        <member name="P:GrayWolf.Gaze.Collections.SerializedDictionary`2.Count">
+            <summary>
+            Number of distinct keys. Duplicate serialized rows are not counted, so this can be smaller
+            than the number of rows shown in the inspector.
+            </summary>
+        </member>
+        <member name="P:GrayWolf.Gaze.Collections.SerializedDictionary`2.IsReadOnly">
+            <summary>Always false.</summary>
+        </member>
+        <member name="P:GrayWolf.Gaze.Collections.SerializedDictionary`2.Keys">
+            <summary>
+            The distinct keys. The returned collection is a live view of the internal lookup and is
+            invalidated by the next mutation.
+            </summary>
+        </member>
+        <member name="P:GrayWolf.Gaze.Collections.SerializedDictionary`2.Values">
+            <summary>
+            The values of the distinct keys. The returned collection is a live view of the internal
+            lookup and is invalidated by the next mutation.
+            </summary>
+        </member>
+        <member name="P:GrayWolf.Gaze.Collections.SerializedDictionary`2.Item(`0)">
+            <summary>
+            Gets or sets the value for <paramref name="key"/>. Setting overwrites an existing entry or
+            appends a new one.
+            </summary>
+            <param name="key">Key to look up. Must not be null when setting.</param>
+            <exception cref="T:System.Collections.Generic.KeyNotFoundException">The key is not present, when getting.</exception>
+            <exception cref="T:System.ArgumentNullException"><paramref name="key"/> is null, when setting.</exception>
+        </member>
+        <member name="M:GrayWolf.Gaze.Collections.SerializedDictionary`2.Add(`0,`1)">
+            <summary>
+            Appends a new entry.
+            </summary>
+            <param name="key">Key to add. Must not be null and must not already be present.</param>
+            <param name="value">Value to associate with the key.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="key"/> is null.</exception>
+            <exception cref="T:System.ArgumentException">An entry with that key already exists.</exception>
+        </member>
+        <member name="M:GrayWolf.Gaze.Collections.SerializedDictionary`2.Add(System.Collections.Generic.KeyValuePair{`0,`1})">
+            <summary>
+            Appends a new entry.
+            </summary>
+            <param name="item">Entry to add. Its key must not be null and must not already be present.</param>
+            <exception cref="T:System.ArgumentNullException">The item's key is null.</exception>
+            <exception cref="T:System.ArgumentException">An entry with that key already exists.</exception>
+        </member>
+        <member name="M:GrayWolf.Gaze.Collections.SerializedDictionary`2.Remove(`0)">
+            <summary>
+            Removes every serialized row carrying <paramref name="key"/>, including duplicates left
+            behind by a hand-edited asset.
+            </summary>
+            <param name="key">Key to remove. A null key is a no-op rather than an error.</param>
+            <returns>True if at least one row was removed.</returns>
+        </member>
+        <member name="M:GrayWolf.Gaze.Collections.SerializedDictionary`2.Remove(System.Collections.Generic.KeyValuePair{`0,`1})">
+            <summary>
+            Removes the entry only when both its key and its value match.
+            </summary>
+            <param name="item">Entry to remove.</param>
+            <returns>True if the entry was present with that exact value and was removed.</returns>
+        </member>
+        <member name="M:GrayWolf.Gaze.Collections.SerializedDictionary`2.Clear">
+            <summary>
+            Removes every entry, including duplicate rows.
+            </summary>
+        </member>
+        <member name="M:GrayWolf.Gaze.Collections.SerializedDictionary`2.ContainsKey(`0)">
+            <summary>
+            Tests whether the key is present.
+            </summary>
+            <param name="key">Key to look for. A null key returns false rather than throwing.</param>
+            <returns>True if the key is present.</returns>
+        </member>
+        <member name="M:GrayWolf.Gaze.Collections.SerializedDictionary`2.Contains(System.Collections.Generic.KeyValuePair{`0,`1})">
+            <summary>
+            Tests whether the entry is present with that exact value.
+            </summary>
+            <param name="item">Entry to look for.</param>
+            <returns>True if the key is present and its value matches.</returns>
+        </member>
+        <member name="M:GrayWolf.Gaze.Collections.SerializedDictionary`2.TryGetValue(`0,`1@)">
+            <summary>
+            Looks up a key without throwing when it is absent.
+            </summary>
+            <param name="key">Key to look for. A null key returns false rather than throwing.</param>
+            <param name="value">The value if found, otherwise the default for <typeparamref name="TValue"/>.</param>
+            <returns>True if the key was found.</returns>
+        </member>
+        <member name="M:GrayWolf.Gaze.Collections.SerializedDictionary`2.CopyTo(System.Collections.Generic.KeyValuePair{`0,`1}[],System.Int32)">
+            <summary>
+            Copies the distinct entries into <paramref name="array"/>.
+            </summary>
+            <param name="array">Destination array.</param>
+            <param name="arrayIndex">Index in the destination to start writing at.</param>
+        </member>
+        <member name="M:GrayWolf.Gaze.Collections.SerializedDictionary`2.GetEnumerator">
+            <summary>
+            Enumerates the distinct entries. Duplicate serialized rows are not yielded.
+            </summary>
+            <returns>An enumerator over the entries.</returns>
+        </member>
+        <member name="M:GrayWolf.Gaze.Collections.SerializedDictionary`2.Invalidate">
+            <summary>
+            Marks the lookup stale so the next read rebuilds it from the serialized lists.
+            </summary>
+            <remarks>
+            Only needed after the backing lists have been changed behind this instance's back - which
+            means through <c>SerializedProperty</c> or reflection, as the inspector drawer does. Every
+            mutation through this class, and every deserialize, already marks the lookup stale.
+            </remarks>
+        </member>
+        <member name="T:GrayWolf.Gaze.Collections.SerializedDictionaryAttribute">
+            <summary>
+            Renames the columns of a <see cref="T:GrayWolf.Gaze.Collections.SerializedDictionary`2"/> field in the inspector,
+            and optionally titles each row from a field on the value.
+            </summary>
+            <remarks>
+            Purely cosmetic. A <see cref="T:GrayWolf.Gaze.Collections.SerializedDictionary`2"/> field draws as a table with or
+            without this attribute.
+            </remarks>
+        </member>
+        <member name="P:GrayWolf.Gaze.Collections.SerializedDictionaryAttribute.Key">
+            <summary>Header text for the key column.</summary>
+        </member>
+        <member name="P:GrayWolf.Gaze.Collections.SerializedDictionaryAttribute.Value">
+            <summary>Header text for the value column.</summary>
+        </member>
+        <member name="P:GrayWolf.Gaze.Collections.SerializedDictionaryAttribute.ValueTitleFieldName">
+            <summary>
+            Name of a serialized field on the value type whose contents title each row, or <c>null</c> to
+            leave rows untitled.
+            </summary>
+        </member>
+        <member name="M:GrayWolf.Gaze.Collections.SerializedDictionaryAttribute.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Configures how the dictionary table is labelled.
+            </summary>
+            <param name="key">Header text for the key column.</param>
+            <param name="value">Header text for the value column.</param>
+            <param name="valueTitleFieldName">
+            Direct field name on the value type, not a dotted path. Naming one draws every row as a
+            foldout titled by that field, however few fields the value has. A name that does not resolve
+            leaves rows untitled and logs a warning.
+            </param>
+        </member>
+    </members>
+</doc>

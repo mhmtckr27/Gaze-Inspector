@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- SerializedDictionary and its attribute. Shared settings: Directory.Build.props. -->
+  <PropertyGroup>
+    <AssemblyName>GrayWolf.Gaze.Collections</AssemblyName>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="Collections/**/*.cs" />
+  </ItemGroup>
+</Project>

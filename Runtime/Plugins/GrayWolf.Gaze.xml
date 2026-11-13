@@ -1,0 +1,473 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GrayWolf.Gaze</name>
+    </assembly>
+    <members>
+        <member name="T:GrayWolf.Gaze.ButtonAttribute">
+            <summary>
+            Draws a button under the inspector that invokes the decorated method.
+            </summary>
+            <remarks>
+            The method must take no parameters. It may be private, and it is invoked once per selected
+            target when editing multiple objects. Pending inspector edits are applied before the call and
+            each target is registered with Undo, so the method may safely modify the object it is called on.
+            An exception thrown by the method is logged and does not abort the remaining targets.
+            </remarks>
+        </member>
+        <member name="F:GrayWolf.Gaze.ButtonAttribute.Label">
+            <summary>
+            Text shown on the button, or <c>null</c> to derive it from the method name.
+            </summary>
+        </member>
+        <member name="M:GrayWolf.Gaze.ButtonAttribute.#ctor">
+            <summary>
+            Labels the button with the method name, split into words
+            (<c>ResetToDefaults</c> becomes "Reset To Defaults").
+            </summary>
+        </member>
+        <member name="M:GrayWolf.Gaze.ButtonAttribute.#ctor(System.String)">
+            <summary>
+            Labels the button with <paramref name="label"/>.
+            </summary>
+            <param name="label">Button text. Falls back to the derived method name if null or empty.</param>
+        </member>
+        <member name="T:GrayWolf.Gaze.ConditionalAttribute">
+            <summary>
+            Base for any attribute that shows, hides, enables or disables a field
+            based on the value of a member bool or a bool-returning function.
+            </summary>
+            <remarks>
+            <para>
+            A condition may name a serialized field, a property, or a parameterless
+            method returning bool. The member may be private, static, or declared on a base type.
+            Prefix a name with '!' to negate, for example "!useCustomRate".
+            </para>
+            <para>
+            Resolution starts at the field's own container and walks up to the serialized object root, so a
+            condition inside a nested struct or a list element resolves against its immediate neighbours
+            first. An unresolvable name leaves the field visible and enabled and reports the problem in the
+            inspector rather than throwing.
+            </para>
+            <para>
+            Supplying an <see cref="P:GrayWolf.Gaze.ConditionalAttribute.OptionalValue"/> switches from "is this bool true" to "does this member
+            equal that value", which is what allows a condition on an enum or a number.
+            </para>
+            </remarks>
+        </member>
+        <member name="P:GrayWolf.Gaze.ConditionalAttribute.Condition">
+            <summary>
+            Name of the member to test, optionally prefixed with '!' to negate the result.
+            </summary>
+        </member>
+        <member name="P:GrayWolf.Gaze.ConditionalAttribute.OptionalValue">
+            <summary>
+            Value that <see cref="P:GrayWolf.Gaze.ConditionalAttribute.Condition"/> is compared against when <see cref="P:GrayWolf.Gaze.ConditionalAttribute.HasOptionalValue"/>
+            is set. Ignored otherwise.
+            </summary>
+        </member>
+        <member name="P:GrayWolf.Gaze.ConditionalAttribute.HasOptionalValue">
+            <summary>
+            True when the attribute was constructed with a comparison value, which selects equality
+            testing over plain bool testing. Set by the constructor, not by the user.
+            </summary>
+        </member>
+        <member name="P:GrayWolf.Gaze.ConditionalAttribute.Invert">
+            <summary>
+            Inverts the combined result. Set by the attribute subclass, not by
+            the user. HideIf is ShowIf with this set to true.
+            </summary>
+        </member>
+        <member name="M:GrayWolf.Gaze.ConditionalAttribute.#ctor(System.String)">
+            <summary>
+            Tests <paramref name="condition"/> as a bool.
+            </summary>
+            <param name="condition">Member name, optionally prefixed with '!'.</param>
+        </member>
+        <member name="M:GrayWolf.Gaze.ConditionalAttribute.#ctor(System.String,System.Object)">
+            <summary>
+            Tests whether <paramref name="condition"/> equals <paramref name="optionalValue"/>.
+            </summary>
+            <param name="condition">Member name, optionally prefixed with '!' to negate the comparison.</param>
+            <param name="optionalValue">Value to compare against. Typically an enum member or a number.</param>
+        </member>
+        <member name="T:GrayWolf.Gaze.CurveRangeAttribute">
+            <summary>
+            Constrains an <see cref="T:UnityEngine.AnimationCurve"/> field to a fixed time and value window, and tints the
+            curve preview.
+            </summary>
+            <remarks>
+            The window bounds the curve editor's visible area; it does not clamp keys that were already
+            outside it. Applies to <see cref="T:UnityEngine.AnimationCurve"/> fields only.
+            </remarks>
+        </member>
+        <member name="P:GrayWolf.Gaze.CurveRangeAttribute.Ranges">
+            <summary>
+            The curve window, packed the way Unity's <c>EditorGUI.CurveField</c> ranges parameter expects:
+            <c>x</c> and <c>width</c> are the time axis, <c>y</c> and <c>height</c> the value axis. A
+            window of time 0..1 and value -1..1 is therefore <c>(0, -1, 1, 2)</c>.
+            </summary>
+        </member>
+        <member name="P:GrayWolf.Gaze.CurveRangeAttribute.Color">
+            <summary>
+            Colour the curve is drawn in.
+            </summary>
+        </member>
+        <member name="M:GrayWolf.Gaze.CurveRangeAttribute.#ctor(System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            Bounds the curve window and draws it in the default pale blue (0.25, 0.75, 1, 1).
+            </summary>
+            <param name="timeMin">Left edge of the time axis.</param>
+            <param name="timeMax">Right edge of the time axis. Must be greater than <paramref name="timeMin"/>.</param>
+            <param name="valueMin">Bottom edge of the value axis.</param>
+            <param name="valueMax">Top edge of the value axis. Must be greater than <paramref name="valueMin"/>.</param>
+        </member>
+        <member name="M:GrayWolf.Gaze.CurveRangeAttribute.#ctor(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            Bounds the curve window and draws it in an explicit colour.
+            </summary>
+            <param name="tMin">Left edge of the time axis.</param>
+            <param name="tMax">Right edge of the time axis. Must be greater than <paramref name="tMin"/>.</param>
+            <param name="vMin">Bottom edge of the value axis.</param>
+            <param name="vMax">Top edge of the value axis. Must be greater than <paramref name="vMin"/>.</param>
+            <param name="colorR">Red channel, 0 to 1.</param>
+            <param name="colorG">Green channel, 0 to 1.</param>
+            <param name="colorB">Blue channel, 0 to 1.</param>
+            <param name="colorA">Alpha channel, 0 to 1.</param>
+        </member>
+        <member name="T:GrayWolf.Gaze.DisableIfAttribute">
+            <summary>
+            Greys the field out while the condition holds. The field stays visible and readable.
+            </summary>
+            <seealso cref="T:GrayWolf.Gaze.EnableIfAttribute"/>
+        </member>
+        <member name="P:GrayWolf.Gaze.DisableIfAttribute.Invert">
+            <inheritdoc/>
+        </member>
+        <member name="M:GrayWolf.Gaze.DisableIfAttribute.#ctor(System.String)">
+            <summary>
+            Disables the field while <paramref name="condition"/> is true.
+            </summary>
+            <param name="condition">Member name, optionally prefixed with '!'.</param>
+        </member>
+        <member name="M:GrayWolf.Gaze.DisableIfAttribute.#ctor(System.String,System.Object)">
+            <summary>
+            Disables the field while <paramref name="condition"/> equals <paramref name="optionalValue"/>.
+            </summary>
+            <param name="condition">Member name, optionally prefixed with '!'.</param>
+            <param name="optionalValue">Value to compare against.</param>
+        </member>
+        <member name="T:GrayWolf.Gaze.EnableIfAttribute">
+            <summary>
+            Leaves the field editable only while the condition holds. The field stays visible and is greyed
+            out when the condition fails.
+            </summary>
+            <seealso cref="T:GrayWolf.Gaze.DisableIfAttribute"/>
+        </member>
+        <member name="P:GrayWolf.Gaze.EnableIfAttribute.Invert">
+            <inheritdoc/>
+        </member>
+        <member name="M:GrayWolf.Gaze.EnableIfAttribute.#ctor(System.String)">
+            <summary>
+            Enables the field while <paramref name="condition"/> is true.
+            </summary>
+            <param name="condition">Member name, optionally prefixed with '!'.</param>
+        </member>
+        <member name="M:GrayWolf.Gaze.EnableIfAttribute.#ctor(System.String,System.Object)">
+            <summary>
+            Enables the field while <paramref name="condition"/> equals <paramref name="optionalValue"/>.
+            </summary>
+            <param name="condition">Member name, optionally prefixed with '!'.</param>
+            <param name="optionalValue">Value to compare against.</param>
+        </member>
+        <member name="T:GrayWolf.Gaze.HideIfAttribute">
+            <summary>
+            Hides the field while the condition holds. The field is hidden entirely, not disabled.
+            </summary>
+            <seealso cref="T:GrayWolf.Gaze.ShowIfAttribute"/>
+        </member>
+        <member name="P:GrayWolf.Gaze.HideIfAttribute.Invert">
+            <inheritdoc/>
+        </member>
+        <member name="M:GrayWolf.Gaze.HideIfAttribute.#ctor(System.String)">
+            <summary>
+            Hides the field while <paramref name="condition"/> is true.
+            </summary>
+            <param name="condition">Member name, optionally prefixed with '!'.</param>
+        </member>
+        <member name="M:GrayWolf.Gaze.HideIfAttribute.#ctor(System.String,System.Object)">
+            <summary>
+            Hides the field while <paramref name="condition"/> equals <paramref name="optionalValue"/>.
+            </summary>
+            <param name="condition">Member name, optionally prefixed with '!'.</param>
+            <param name="optionalValue">Value to compare against.</param>
+        </member>
+        <member name="T:GrayWolf.Gaze.InfoBoxAttribute">
+            <summary>
+            Draws a fixed help box above the field.
+            </summary>
+            <remarks>
+            The message is static; nothing about the field's value affects it. Several boxes may be stacked
+            on one field, in which case they are ordered most severe first. On a field inside a list, the
+            box is drawn once for the list rather than once per element.
+            </remarks>
+        </member>
+        <member name="F:GrayWolf.Gaze.InfoBoxAttribute.Message">
+            <summary>Text shown in the box.</summary>
+        </member>
+        <member name="F:GrayWolf.Gaze.InfoBoxAttribute.Type">
+            <summary>Icon and severity of the box.</summary>
+        </member>
+        <member name="M:GrayWolf.Gaze.InfoBoxAttribute.#ctor(System.String,GrayWolf.Gaze.InfoMessageType)">
+            <summary>
+            Draws a help box carrying <paramref name="message"/>.
+            </summary>
+            <param name="message">Text to show.</param>
+            <param name="type">Icon and severity. Defaults to <see cref="F:GrayWolf.Gaze.InfoMessageType.Info"/>.</param>
+        </member>
+        <member name="T:GrayWolf.Gaze.InfoMessageType">
+            <summary>
+            Severity of an inspector message box, which selects its icon. Ordered least to most severe;
+            stacked messages on one field are sorted by this order, most severe first.
+            </summary>
+        </member>
+        <member name="F:GrayWolf.Gaze.InfoMessageType.None">
+            <summary>Generic message box with no type.</summary>
+        </member>
+        <member name="F:GrayWolf.Gaze.InfoMessageType.Info">
+            <summary>Information message box.</summary>
+        </member>
+        <member name="F:GrayWolf.Gaze.InfoMessageType.Warning">
+            <summary>Warning message box.</summary>
+        </member>
+        <member name="F:GrayWolf.Gaze.InfoMessageType.Error">
+            <summary>Error message box.</summary>
+        </member>
+        <member name="T:GrayWolf.Gaze.LabelTextAttribute">
+            <summary>
+            Replaces the field's inspector label, which Unity would otherwise derive from the field name.
+            </summary>
+        </member>
+        <member name="F:GrayWolf.Gaze.LabelTextAttribute.Label">
+            <summary>Text to show in place of the derived field name.</summary>
+        </member>
+        <member name="M:GrayWolf.Gaze.LabelTextAttribute.#ctor(System.String)">
+            <summary>
+            Labels the field <paramref name="label"/>.
+            </summary>
+            <param name="label">Replacement label text.</param>
+        </member>
+        <member name="T:GrayWolf.Gaze.OnValueChangedAttribute">
+            <summary>
+            Calls <see cref="F:GrayWolf.Gaze.OnValueChangedAttribute.FunctionName"/> after the field is edited in the inspector.
+            The method may be private, may be declared on a base type, and must take either
+            zero parameters or two parameters (old value, new value).
+            Fires only on direct user edits through the inspector - not on Undo/Redo,
+            script-driven changes to the field, or domain reload.
+            </summary>
+        </member>
+        <member name="F:GrayWolf.Gaze.OnValueChangedAttribute.FunctionName">
+            <summary>Name of the method to call. Resolved on the object that declares the field.</summary>
+        </member>
+        <member name="M:GrayWolf.Gaze.OnValueChangedAttribute.#ctor(System.String)">
+            <summary>
+            Calls <paramref name="functionName"/> after each inspector edit of the field.
+            </summary>
+            <param name="functionName">
+            Method name on the declaring type or one of its base types. The method must take no
+            parameters, or exactly two of the field's type (old value, new value).
+            </param>
+        </member>
+        <member name="T:GrayWolf.Gaze.ReadOnlyAttribute">
+            <summary>
+            Shows the field greyed out and blocks editing it from the inspector.
+            </summary>
+            <remarks>
+            The field is still serialized and still writable from script; this only removes the inspector as
+            a way to change it. Use <see cref="T:GrayWolf.Gaze.DisableIfAttribute"/> when the field should be editable under
+            some conditions.
+            </remarks>
+        </member>
+        <member name="T:GrayWolf.Gaze.RequiredAttribute">
+            <summary>
+            Shows an error box above the field while it is unset.
+            </summary>
+            <remarks>
+            A string field counts as unset when it is null or empty; any other field counts as unset when its
+            object reference is null. This reports the problem in the inspector only - it does not block
+            entering play mode or building.
+            </remarks>
+        </member>
+        <member name="F:GrayWolf.Gaze.RequiredAttribute.ErrorMessage">
+            <summary>
+            Text of the error box, or <c>null</c> to use a message derived from the field's label.
+            </summary>
+        </member>
+        <member name="M:GrayWolf.Gaze.RequiredAttribute.#ctor">
+            <summary>
+            Reports the field with a default message: "{label} is required." for a string field,
+            "{label} must be assigned." for anything else.
+            </summary>
+        </member>
+        <member name="M:GrayWolf.Gaze.RequiredAttribute.#ctor(System.String)">
+            <summary>
+            Reports the field with a custom message.
+            </summary>
+            <param name="errorMessage">Text to show. Falls back to the default message if null or empty.</param>
+        </member>
+        <member name="T:GrayWolf.Gaze.ShowIfAttribute">
+            <summary>
+            Draws the field only while the condition holds. The field is hidden entirely, not disabled.
+            </summary>
+            <seealso cref="T:GrayWolf.Gaze.HideIfAttribute"/>
+        </member>
+        <member name="P:GrayWolf.Gaze.ShowIfAttribute.Invert">
+            <inheritdoc/>
+        </member>
+        <member name="M:GrayWolf.Gaze.ShowIfAttribute.#ctor(System.String)">
+            <summary>
+            Shows the field while <paramref name="condition"/> is true.
+            </summary>
+            <param name="condition">Member name, optionally prefixed with '!'.</param>
+        </member>
+        <member name="M:GrayWolf.Gaze.ShowIfAttribute.#ctor(System.String,System.Object)">
+            <summary>
+            Shows the field while <paramref name="condition"/> equals <paramref name="optionalValue"/>.
+            </summary>
+            <param name="condition">Member name, optionally prefixed with '!'.</param>
+            <param name="optionalValue">Value to compare against.</param>
+        </member>
+        <member name="T:GrayWolf.Gaze.VectorRangeAttribute">
+            <summary>
+            Clamps each component of a vector field to its own range.
+            </summary>
+            <remarks>
+            <para>
+            Every overload takes all minimums first, then all maximums. Applies to
+            <see cref="T:UnityEngine.Vector2"/>, <see cref="T:UnityEngine.Vector3"/>, <see cref="T:UnityEngine.Vector4"/>, <see cref="T:UnityEngine.Vector2Int"/>
+            and <see cref="T:UnityEngine.Vector3Int"/> fields; other field types are left alone.
+            </para>
+            <para>
+            The range clamps the value the user types, not just the travel of the slider. Components the
+            chosen overload does not cover are left unbounded, so tagging a <see cref="T:UnityEngine.Vector3"/> field with
+            the two-axis overload constrains X and Y and leaves Z free.
+            </para>
+            </remarks>
+        </member>
+        <member name="F:GrayWolf.Gaze.VectorRangeAttribute.minX">
+            <summary>Lower bound for the X component, or null when unbounded.</summary>
+        </member>
+        <member name="F:GrayWolf.Gaze.VectorRangeAttribute.minY">
+            <summary>Lower bound for the Y component, or null when unbounded.</summary>
+        </member>
+        <member name="F:GrayWolf.Gaze.VectorRangeAttribute.minZ">
+            <summary>Lower bound for the Z component, or null when unbounded.</summary>
+        </member>
+        <member name="F:GrayWolf.Gaze.VectorRangeAttribute.minW">
+            <summary>Lower bound for the W component, or null when unbounded.</summary>
+        </member>
+        <member name="F:GrayWolf.Gaze.VectorRangeAttribute.maxX">
+            <summary>Upper bound for the X component, or null when unbounded.</summary>
+        </member>
+        <member name="F:GrayWolf.Gaze.VectorRangeAttribute.maxY">
+            <summary>Upper bound for the Y component, or null when unbounded.</summary>
+        </member>
+        <member name="F:GrayWolf.Gaze.VectorRangeAttribute.maxZ">
+            <summary>Upper bound for the Z component, or null when unbounded.</summary>
+        </member>
+        <member name="F:GrayWolf.Gaze.VectorRangeAttribute.maxW">
+            <summary>Upper bound for the W component, or null when unbounded.</summary>
+        </member>
+        <member name="F:GrayWolf.Gaze.VectorRangeAttribute.showSliders">
+            <summary>
+            Draws each component as a slider across its range instead of a plain number field.
+            </summary>
+        </member>
+        <member name="M:GrayWolf.Gaze.VectorRangeAttribute.#ctor(System.Single,System.Single,System.Single,System.Single,System.Boolean)">
+            <summary>
+            Bounds the X and Y components and leaves Z and W unbounded.
+            </summary>
+            <param name="minX">Lower bound for X.</param>
+            <param name="minY">Lower bound for Y.</param>
+            <param name="maxX">Upper bound for X.</param>
+            <param name="maxY">Upper bound for Y.</param>
+            <param name="showSliders">Draw sliders rather than number fields.</param>
+        </member>
+        <member name="M:GrayWolf.Gaze.VectorRangeAttribute.#ctor(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Boolean)">
+            <summary>
+            Bounds the X, Y and Z components and leaves W unbounded.
+            </summary>
+            <param name="minX">Lower bound for X.</param>
+            <param name="minY">Lower bound for Y.</param>
+            <param name="minZ">Lower bound for Z.</param>
+            <param name="maxX">Upper bound for X.</param>
+            <param name="maxY">Upper bound for Y.</param>
+            <param name="maxZ">Upper bound for Z.</param>
+            <param name="showSliders">Draw sliders rather than number fields.</param>
+        </member>
+        <member name="M:GrayWolf.Gaze.VectorRangeAttribute.#ctor(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Boolean)">
+            <summary>
+            Bounds all four components.
+            </summary>
+            <param name="minX">Lower bound for X.</param>
+            <param name="minY">Lower bound for Y.</param>
+            <param name="minZ">Lower bound for Z.</param>
+            <param name="minW">Lower bound for W.</param>
+            <param name="maxX">Upper bound for X.</param>
+            <param name="maxY">Upper bound for Y.</param>
+            <param name="maxZ">Upper bound for Z.</param>
+            <param name="maxW">Upper bound for W.</param>
+            <param name="showSliders">Draw sliders rather than number fields.</param>
+        </member>
+        <member name="T:GrayWolf.Gaze.ContextContainer">
+            <summary>
+            A very slim ContextContainer: type‑keyed storage + Reset/Dispose.
+            </summary>
+        </member>
+        <member name="M:GrayWolf.Gaze.ContextContainer.Get``1">
+            <summary>
+            Retrieves a T of class <c>ContextItem</c> if it was previously created without it being disposed.
+            </summary>
+            <typeparam name="T">Is the class which you are trying to fetch. T has to inherit from <c>ContextItem</c></typeparam>
+            <returns>The value created previously using <![CDATA[Create<T>]]> .</returns>
+            <exception cref="T:System.InvalidOperationException">This is thrown if the value isn't previously created.</exception>
+        </member>
+        <member name="M:GrayWolf.Gaze.ContextContainer.Create``1">
+            <summary>
+            Creates the value of type T.
+            </summary>
+            <typeparam name="T">Is the class which you are trying to fetch. T has to inherit from <c>ContextItem</c></typeparam>
+            <returns>The value of type T created inside the <c>ContextContainer</c>.</returns>
+            <exception cref="T:System.InvalidOperationException">Thrown if you try to create the value of type T again after it is already created.</exception>
+        </member>
+        <member name="M:GrayWolf.Gaze.ContextContainer.GetOrCreate``1">
+            <summary>
+            Gets the value of type T if the value is previously created otherwise create it.
+            </summary>
+            <typeparam name="T">Is the class which you are trying to fetch. T has to inherit from <c>ContextItem</c></typeparam>
+            <returns>Returns the value of type T which is created or retrieved.</returns>
+        </member>
+        <member name="M:GrayWolf.Gaze.ContextContainer.Dispose">
+            <summary>
+            Reset and remove the created values.
+            </summary>
+        </member>
+        <member name="T:GrayWolf.Gaze.ContextItem">
+            <summary>
+            This is needed to add the data to <c>ContextContainer</c> and will control how the data are removed when calling Dispose on the <c>ContextContainer</c>.
+            </summary>
+        </member>
+        <member name="M:GrayWolf.Gaze.ContextItem.Reset">
+            <summary>
+            Resets the object so it can be used as a new instance next time it is created.
+            To avoid memory allocations and generating garbage, the system reuses objects.
+            This function should clear the object so it can be reused without leaking any
+            information (e.g. pointers to objects that will no longer be valid to access).
+            So it is important the implementation carefully clears all relevant members.
+            Note that this is different from a Dispose or Destructor as the object in not
+            freed but reset. This can be useful when havin large sub-allocated objects like
+            arrays or lists which can be cleared and reused without re-allocating.
+            </summary>
+        </member>
+    </members>
+</doc>

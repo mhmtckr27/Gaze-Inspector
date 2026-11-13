@@ -337,6 +337,7 @@ html { scroll-padding-top: 1.5rem; }
           <a href="#getting-started">Getting started</a>
           <ul class="toc__sub">
             <li><a href="#install">Install</a></li>
+            <li><a href="#assembly-definitions">Assembly definitions</a></li>
             <li><a href="#how-gaze-takes-over-the-inspector">How Gaze takes over the Inspector</a></li>
             <li><a href="#settings">Settings</a></li>
             <li><a href="#whats-in-the-box">What’s in the box</a></li>
@@ -429,6 +430,20 @@ html { scroll-padding-top: 1.5rem; }
 <li><a href="#">Unity Asset Store</a>: import through <strong>Window → Package Manager → My Assets</strong></li>
 <li><a href="#">GitHub</a>: source, releases and issues</li>
 </ul>
+
+<h2 id="assembly-definitions">Assembly definitions</h2>
+<p>Gaze’s attributes and <code>SerializedDictionary</code> ship as precompiled assemblies
+(<code>GrayWolf.Gaze.dll</code> and <code>GrayWolf.Gaze.Collections.dll</code>), which Unity references
+from every assembly in your project. Scripts in your own assembly definitions can use
+<code>[Button]</code>, <code>[ShowIf]</code> and the rest with no setup.</p>
+<p>Code that uses Gaze’s editor API, such as a drawer you write for your own type, needs one reference
+when it lives in an assembly definition: add <code>GrayWolf.Gaze.Editor</code> to that assembly’s
+<strong>Assembly Definition References</strong>, or select the assembly definition and use
+<strong>Assets → Gaze → Add Gaze Editor Reference</strong>. Editor scripts in a plain
+<code>Editor</code> folder need nothing.</p>
+<p><strong>Upgrading from 1.0.0:</strong> if you had added <code>GrayWolf.Gaze</code> or
+<code>GrayWolf.Gaze.Collections</code> to an assembly definition, those entries no longer point at
+anything. They cause no errors, but you can remove them.</p>
 
 
 

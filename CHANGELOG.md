@@ -5,7 +5,27 @@ All notable changes to Gaze are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.0.0] - 2026-11-08
+## [1.1.0] - 2026-11-13
+
+### Added
+
+- **Assets > Gaze > Add Gaze Editor Reference**: adds `GrayWolf.Gaze.Editor` to the
+  selected editor-only assembly definitions, for code that uses Gaze's editor API, such
+  as your own drawers.
+
+### Changed
+
+- The runtime assemblies, `GrayWolf.Gaze` and `GrayWolf.Gaze.Collections`, now ship
+  as precompiled DLLs.
+
+### Upgrading from 1.0.0
+
+- If you added `GrayWolf.Gaze` or `GrayWolf.Gaze.Collections` to an assembly
+  definition's references, those entries no longer point at anything. They cause no
+  errors, but you can remove them.
+
+
+## [1.0.0] - 2026-11-04
 
 ### Added
 

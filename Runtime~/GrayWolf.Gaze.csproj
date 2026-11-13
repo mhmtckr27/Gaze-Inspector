@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Attributes, core utilities and extensions. Shared settings: Directory.Build.props. -->
+  <PropertyGroup>
+    <AssemblyName>GrayWolf.Gaze</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Collections/ is its own assembly (GrayWolf.Gaze.Collections.csproj). -->
+    <Compile Remove="Collections/**" />
+    <Compile Remove="bin/**;obj/**" />
+  </ItemGroup>
+</Project>

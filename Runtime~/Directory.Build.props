@@ -1,0 +1,62 @@
+<Project>
+  <!--
+    Shared settings for the Gaze runtime assemblies. Unity ignores this folder (its name ends
+    in "~"); build.ps1 compiles it and copies the results into Runtime/Plugins/.
+
+    UnityEditorDir must point at the Editor folder of the oldest Unity version Gaze supports
+    (the one in package.json), so the DLLs only use APIs that exist there. build.ps1 finds it,
+    or pass it yourself: dotnet build -p:UnityEditorDir="C:\...\2022.3.62f3\Editor"
+  -->
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <!-- C# 9 is what Unity 2022.3 compiles with. -->
+    <LangVersion>9.0</LangVersion>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <RootNamespace>GrayWolf.Gaze</RootNamespace>
+
+    <!-- Two projects share this folder, so each needs its own obj/ (NuGet restore state). -->
+    <BaseIntermediateOutputPath>$(MSBuildThisFileDirectory)obj\$(MSBuildProjectName)\</BaseIntermediateOutputPath>
+    <OutputPath>$(MSBuildThisFileDirectory)bin\$(Configuration)\</OutputPath>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <ProduceReferenceAssembly>false</ProduceReferenceAssembly>
+
+    <!-- XML docs ship next to the DLL so IDEs keep showing the /// comments. -->
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+
+    <!-- Portable PDB with the sources embedded, so users can step into Gaze code. Paths are
+         mapped so the PDB doesn't carry this machine's folder layout. -->
+    <DebugType>portable</DebugType>
+    <EmbedAllSources>true</EmbedAllSources>
+    <Deterministic>true</Deterministic>
+    <PathMap>$(MSBuildThisFileDirectory)=/_/Runtime~/</PathMap>
+
+    <!-- AssemblyVersion stays at the major version; package releases change only the file and
+         informational versions. build.ps1 passes the package.json version as -p:Version. -->
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <Company>Gray Wolf Studio</Company>
+    <Product>Gaze Inspector</Product>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <UnityManagedDir>$(UnityEditorDir)\Data\Managed\UnityEngine</UnityManagedDir>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>$(UnityManagedDir)\UnityEngine.CoreModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.IMGUIModule">
+      <HintPath>$(UnityManagedDir)\UnityEngine.IMGUIModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+  <Target Name="GazeCheckUnityPath" BeforeTargets="ResolveAssemblyReferences">
+    <Error Condition="'$(UnityEditorDir)' == ''"
+           Text="UnityEditorDir is not set. Run build.ps1, or pass -p:UnityEditorDir=&quot;...\2022.3.62f3\Editor&quot;." />
+    <Error Condition="!Exists('$(UnityManagedDir)\UnityEngine.CoreModule.dll')"
+           Text="UnityEngine.CoreModule.dll not found under '$(UnityManagedDir)'. UnityEditorDir must be a Unity install's Editor folder." />
+  </Target>
+</Project>

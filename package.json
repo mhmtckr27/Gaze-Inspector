@@ -1,6 +1,6 @@
 {
   "name": "net.graywolfstudio.gaze",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "displayName": "Gaze Inspector",
   "description": "Attributes and drawers for the Unity inspector: serializable dictionaries, polymorphic subclass pickers, conditional fields, and paginated collections.",
   "unity": "2022.3",

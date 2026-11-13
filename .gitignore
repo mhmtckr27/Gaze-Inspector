@@ -73,3 +73,11 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+
+# Gaze runtime source (Runtime~/) builds into Runtime/Plugins/ via Runtime~/build.ps1.
+# Keep its project files and the shipped debug symbols, which the rules above would ignore.
+/Runtime~/bin/
+/Runtime~/obj/
+!/Runtime~/*.csproj
+!/Runtime/Plugins/*.pdb
+!/Runtime/Plugins/*.pdb.meta

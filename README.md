@@ -20,6 +20,9 @@ Gaze ships as a Unity asset, and it is open source.
 source, releases and issues. Window → Package Manager → + → Add package from git URL:  
 `https://github.com/mhmtckr27/Gaze-Inspector.git`
 
+### Assembly definitions
+Custom drawers in a plain `Editor` folder need nothing. If yours live in an editor-only assembly definition, add `GrayWolf.Gaze.Editor` to its Assembly Definition References, or select the assembly definition and use **Assets > Gaze > Add Gaze Editor Reference**.
+
 ### Requirements
 - Unity 2022.3 or newer (including Unity 6).
 
