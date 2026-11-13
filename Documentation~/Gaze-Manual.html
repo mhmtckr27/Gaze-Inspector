@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Gaze 1.0.0 manual</title>
-<meta name="description" content="Offline manual for Gaze 1.0.0, Custom inspector for Unity.">
+<title>Gaze 1.1.0 manual</title>
+<meta name="description" content="Offline manual for Gaze 1.1.0, Custom inspector for Unity.">
 <style>
 @font-face {
   font-family: 'Archivo Variable';
@@ -325,8 +325,8 @@ html { scroll-padding-top: 1.5rem; }
       <p class="mono manual__kicker">Gray Wolf Studio</p>
       <h1 class="manual__title">Gaze</h1>
       <p class="manual__sub">Custom inspector for Unity</p>
-      <p class="manual__version">Documents Gaze 1.0.0</p>
-      <p class="manual__online">Offline manual, built 2026-11-04. The current version is
+      <p class="manual__version">Documents Gaze 1.1.0</p>
+      <p class="manual__online">Offline manual, built 2026-11-13. The current version is
         online at <a href="https://graywolfstudio.net/docs/gaze">https://graywolfstudio.net/docs/gaze</a>.</p>
     </header>
 
@@ -337,7 +337,6 @@ html { scroll-padding-top: 1.5rem; }
           <a href="#getting-started">Getting started</a>
           <ul class="toc__sub">
             <li><a href="#install">Install</a></li>
-            <li><a href="#assembly-definitions">Assembly definitions</a></li>
             <li><a href="#how-gaze-takes-over-the-inspector">How Gaze takes over the Inspector</a></li>
             <li><a href="#settings">Settings</a></li>
             <li><a href="#whats-in-the-box">What’s in the box</a></li>
@@ -392,6 +391,7 @@ html { scroll-padding-top: 1.5rem; }
         <li class="toc__page">
           <a href="#custom-drawers">Writing a custom drawer</a>
           <ul class="toc__sub">
+            <li><a href="#assembly-definitions">Assembly definitions</a></li>
             <li><a href="#draw-your-own-type">Draw your own type</a></li>
             <li><a href="#decorate-an-attribute">Decorate an attribute</a></li>
             <li><a href="#one-trap-worth-knowing">One trap worth knowing</a></li>
@@ -427,25 +427,9 @@ html { scroll-padding-top: 1.5rem; }
 <h2 id="install">Install</h2>
 <p>Gaze ships as a Unity package, and it is open source.</p>
 <ul>
-<li><a href="#">Unity Asset Store</a>: import through <strong>Window → Package Manager → My Assets</strong></li>
-<li><a href="#">GitHub</a>: source, releases and issues</li>
+<li><a href="https://u3d.as/47tu" target="_blank" rel="noopener noreferrer">Unity Asset Store</a>: import through <strong>Window → Package Manager → My Assets</strong></li>
+<li><a href="https://github.com/mhmtckr27/Gaze-Inspector" target="_blank" rel="noopener noreferrer">GitHub</a>: source, releases and issues</li>
 </ul>
-
-<h2 id="assembly-definitions">Assembly definitions</h2>
-<p>Gaze’s attributes and <code>SerializedDictionary</code> ship as precompiled assemblies
-(<code>GrayWolf.Gaze.dll</code> and <code>GrayWolf.Gaze.Collections.dll</code>), which Unity references
-from every assembly in your project. Scripts in your own assembly definitions can use
-<code>[Button]</code>, <code>[ShowIf]</code> and the rest with no setup.</p>
-<p>Code that uses Gaze’s editor API, such as a drawer you write for your own type, needs one reference
-when it lives in an assembly definition: add <code>GrayWolf.Gaze.Editor</code> to that assembly’s
-<strong>Assembly Definition References</strong>, or select the assembly definition and use
-<strong>Assets → Gaze → Add Gaze Editor Reference</strong>. Editor scripts in a plain
-<code>Editor</code> folder need nothing.</p>
-<p><strong>Upgrading from 1.0.0:</strong> if you had added <code>GrayWolf.Gaze</code> or
-<code>GrayWolf.Gaze.Collections</code> to an assembly definition, those entries no longer point at
-anything. They cause no errors, but you can remove them.</p>
-
-
 
 <h2 id="how-gaze-takes-over-the-inspector">How Gaze takes over the Inspector</h2>
 <p>Gaze registers a single fallback editor:</p>
@@ -1143,6 +1127,11 @@ what <a href="#troubleshooting">Troubleshooting</a> covers.</li>
 <p>Gaze resolves one drawer per property and wraps it in a decorator for each
 attribute on the field. Both halves are open to extend: <code>PropertyDrawer&lt;T&gt;</code> renders a type,
 <code>AttributeDrawer&lt;T&gt;</code> decorates whatever would otherwise have rendered it.</p>
+<h2 id="assembly-definitions">Assembly definitions</h2>
+<p>Drawers in a plain <code>Editor</code> folder need nothing. If yours live in an assembly
+definition, add <code>GrayWolf.Gaze.Editor</code> to its <strong>Assembly Definition References</strong>,
+or select the assembly definition and use <strong>Assets → Gaze → Add Gaze Editor
+Reference</strong>. That assembly must be editor-only (<strong>Include Platforms</strong>: Editor).</p>
 <h2 id="draw-your-own-type">Draw your own type</h2>
 <p>Drawers are discovered by their generic argument through Unity’s <code>TypeCache</code>. <br>
 A non-abstract,
